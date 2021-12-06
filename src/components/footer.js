@@ -14,7 +14,7 @@ const StyledFooter = styled.footer`
   bottom: 0;
   left: 0;
   color: var(--color-background);
-  border-top: 3px solid #4e4e4e;
+  border-top: 3px solid var(--color-background-tint);
 `
 
 export default Footer

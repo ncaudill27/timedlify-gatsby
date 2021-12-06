@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
@@ -12,6 +13,18 @@ const Button = ({ variant = "fill", children, ...props }) => {
     Component = GhostButton
   }
 
+  if (!!props.to) {
+    return (
+      <Link
+        style={{
+          textDecoration: "none",
+        }}
+        {...props}
+      >
+        <Component style={{ ...props.style }}>{children}</Component>
+      </Link>
+    )
+  }
   return <Component {...props}>{children}</Component>
 }
 
@@ -23,11 +36,12 @@ const ButtonBase = styled.button`
   border: 2px solid transparent;
   border-radius: 50px;
   appearance: none;
+  font-weight: 600;
 
   font-family: var(--font-family-primary);
-  --type-fontsize-min: ${18 / 16}rem; // 18px
-  --type-fontsize-max: ${21 / 16}rem; // 23px
-  --type-fontsize-value: 0.8rem + 0.68vw;
+  --type-fontsize-min: ${26 / 16}rem; // 18px
+  --type-fontsize-max: ${34 / 16}rem; // 23px
+  --type-fontsize-value: 1.2rem + 1vw;
   font-size: calc(
     (
       clamp(

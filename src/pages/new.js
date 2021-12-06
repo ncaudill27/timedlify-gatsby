@@ -9,20 +9,21 @@ import Footer from "../components/footer"
 
 const IndexPage = () => (
   <Layout>
-    <Seo title='Home' />
+    <Seo title='New Timer' />
     <main>
       <Button style={{ "--width": "100%", backgroundColor: "#ff7300" }}>
-        HIIT Interval
+        <h2>HIIT Interval</h2>
       </Button>
       <Button style={{ "--width": "100%", backgroundColor: "#ff0000" }}>
-        Work Wake-Up
+        <h2>Work Wake-Up</h2>
       </Button>
       <Button style={{ "--width": "100%", backgroundColor: "#ae00ff" }}>
-        Wind Down
+        <h2>Wind Down</h2>
       </Button>
     </main>
     <Footer>
       <Button
+        as={Link}
         to='/new'
         style={{
           "--width": "100%",
@@ -30,7 +31,7 @@ const IndexPage = () => (
           color: "var(--color-background)",
         }}
       >
-        New Timer
+        <h2>New Timer</h2>
       </Button>
     </Footer>
   </Layout>
