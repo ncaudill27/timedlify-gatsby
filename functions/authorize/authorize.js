@@ -21,7 +21,7 @@ const redirect_uri = `${siteUrl}/.netlify/functions/callback`
 const scope =
   "user-read-playback-state user-modify-playback-state user-read-currently-playing streaming app-remote-control playlist-read-collaborative playlist-read-private user-read-recently-played user-library-read"
 
-exports.handler = async (event, context) => {
+exports.handler = async () => {
   try {
     // set state for callback to verify
     // const state = writeState();
