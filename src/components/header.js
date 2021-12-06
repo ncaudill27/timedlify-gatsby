@@ -1,24 +1,15 @@
 import * as React from "react"
+import styled from "styled-components"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import MaxWidthWrapper from "../components/maxWidthWrapper"
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
+  <StyledHeader>
+    <MaxWidthWrapper width={960}>
       <h1 style={{ margin: 0 }}>
         <Link
-          to="/"
+          to='/'
           style={{
             color: `white`,
             textDecoration: `none`,
@@ -27,9 +18,16 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
-    </div>
-  </header>
+    </MaxWidthWrapper>
+  </StyledHeader>
 )
+
+const StyledHeader = styled.header`
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
+  background-color: var(--color-background-shade);
+  text-align: center;
+`
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
