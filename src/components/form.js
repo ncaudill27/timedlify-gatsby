@@ -1,40 +1,55 @@
 import React from "react"
 import styled from "styled-components"
-import { useRadio, useRadioGroup } from "@react-aria/radio"
 
-const Form = ({
-  name,
-  playlist,
-  color,
-  hours,
-  minutes,
-  noon,
-  handleChange,
-  handlePlaylist,
-  handleColor,
-  handleHours,
-  handleMinutes,
-  handleNoon,
-  handleSubmit,
-}) => {
-  console.log(name)
+import RadioGroup from "./radioGroup"
+import Radio from "./radio"
 
-  return (
-    <StyledForm onSubmit={handleSubmit}>
-      <Label htmlFor='name'>
-        Name
-        <StyledInput
-          id='name'
-          type='text'
-          name='name'
-          value={name}
-          onChange={handleChange}
-          autoComplete='off'
-        />
-      </Label>
-    </StyledForm>
-  )
-}
+const Form = React.forwardRef(
+  (
+    {
+      name,
+      playlist,
+      color,
+      hours,
+      minutes,
+      noon,
+      handleChange,
+      handlePlaylist,
+      handleColor,
+      handleHours,
+      handleMinutes,
+      handleNoon,
+      handleSubmit,
+    },
+    ref
+  ) => {
+    console.log(name)
+
+    return (
+      <StyledForm ref={ref} onSubmit={handleSubmit}>
+        <Label htmlFor='name'>
+          Name
+          <StyledInput
+            id='name'
+            type='text'
+            name='name'
+            value={name}
+            onChange={handleChange}
+            autoComplete='off'
+          />
+        </Label>
+        <RadioGroup id='playlists' label='playlists'>
+          <Radio value='Hi'>Hi</Radio>
+          <Radio value='Wtf'>wtf</Radio>
+          <Radio value='more'>more</Radio>
+          <Radio value='test'>test</Radio>
+          <Radio value='end'>wend</Radio>
+        </RadioGroup>
+        <button type='submit'>Create Timer</button>
+      </StyledForm>
+    )
+  }
+)
 
 const StyledForm = styled.form`
   margin-top: var(--spacing-6);

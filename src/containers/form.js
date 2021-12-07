@@ -1,9 +1,10 @@
-import React, { useState } from "react"
-import { useRadioGroupState } from "@react-stately/radio"
+import React, { useState, useRef } from "react"
 
 import StyledForm from "../components/form"
 
 const Form = props => {
+  const formEl = useRef()
+
   const [name, setName] = useState("")
   const handleChange = e => setName(e.target.value)
 
@@ -32,6 +33,13 @@ const Form = props => {
 
   const handleSubmit = e => {
     e.preventDefault()
+    let data = {}
+    const formData = new FormData(formEl.current)
+
+    for (const pair of formData.entries()) {
+      data[pair[0]] = pair[1]
+    }
+    console.log(data)
   }
 
   const formLogic = {
@@ -50,7 +58,7 @@ const Form = props => {
     handleSubmit,
   }
 
-  return <StyledForm {...{ ...formLogic, ...props }} />
+  return <StyledForm ref={formEl} {...{ ...formLogic, ...props }} />
 }
 
 export default Form
