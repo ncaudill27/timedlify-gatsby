@@ -39,6 +39,7 @@ const Form = props => {
     for (const pair of formData.entries()) {
       data[pair[0]] = pair[1]
     }
+    // TODO figure out better way to get this data
     console.log(data)
   }
 

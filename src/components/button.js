@@ -98,7 +98,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   style: {
-    "--width": "fit-content",
+    "--width": "100%",
   },
 }
 

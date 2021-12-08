@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 import RadioGroup from "./radioGroup"
 import Radio from "./radio"
+import Button from "./button"
 
 const Form = React.forwardRef(
   (
@@ -38,14 +39,23 @@ const Form = React.forwardRef(
             autoComplete='off'
           />
         </Label>
-        <RadioGroup id='playlists' label='playlists'>
+        <RadioGroup id='playlists' label='Playlists'>
           <Radio value='Hi'>Hi</Radio>
           <Radio value='Wtf'>wtf</Radio>
           <Radio value='more'>more</Radio>
           <Radio value='test'>test</Radio>
           <Radio value='end'>wend</Radio>
         </RadioGroup>
-        <button type='submit'>Create Timer</button>
+        <Button
+          style={{
+            color: "var(--color-background)",
+            marginTop: "auto",
+            marginBottom: "var(--spacing-2)",
+          }}
+          type='submit'
+        >
+          Create Timer
+        </Button>
       </StyledForm>
     )
   }
@@ -53,6 +63,7 @@ const Form = React.forwardRef(
 
 const StyledForm = styled.form`
   margin-top: var(--spacing-6);
+  height: calc(100vh - 136px);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-0);

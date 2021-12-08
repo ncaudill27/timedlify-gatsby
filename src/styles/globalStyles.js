@@ -31,12 +31,9 @@ export default createGlobalStyle`
   --color-background-shade: hsl(0deg, 0%, 6%);
   --color-background-tint: 	hsl(0deg, 0%, 31%);
   --color-background-io: hsl(0deg, 0%, 97%);
-  --color-primary: hsl(213deg, 100%, 43%);
-  --color-primary-muted: hsl(213deg, 66%, 63%);
-  --color-primary-shade: hsl(213deg, 100%, 23%);
+  --color-primary: 	hsl(128deg, 100%, 50%); // #00ff22
+  --color-primary-muted: 	hsl(128deg, 100%, 70%); // #00ff22
   --color-secondary: hsl(3deg, 100%, 43%);
-  --color-secondary-muted: hsl(3deg, 66%, 79%);
-  --color-secondary-darkened: hsl(3deg, 100%, 30%);
   }
   /*
     Josh's Custom CSS Reset
