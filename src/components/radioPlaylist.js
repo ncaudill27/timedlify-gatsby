@@ -5,7 +5,6 @@ import styled from "styled-components"
 
 const PlaylistRadioGroup = props => (
   <StyledRadioGroup {...props}>
-    <label>Playlists</label>
     <StyledRadio value='Hi' id='r1'>
       <Indicator />
       <StyledRadioLabel htmlFor='r1'>Hi</StyledRadioLabel>

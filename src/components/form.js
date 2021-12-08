@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import PlaylistRadioGroup from "./radioPlaylist"
+import ColorRadioGroup from "./radioColor"
 import Button from "./button"
 
 const Form = React.forwardRef(
@@ -38,10 +39,19 @@ const Form = React.forwardRef(
             autoComplete='off'
           />
         </Label>
+        <Label id='playlist-title'>Playlists</Label>
         <PlaylistRadioGroup
-          aria-label='Playlist'
+          aria-labelledby='playlist-title'
           value={playlist}
           onValueChange={handlePlaylist}
+          orientation='vertical'
+        />
+        <Label id='colors-title'>Select a color</Label>
+        <ColorRadioGroup
+          aria-labelledby='colors-title'
+          value={color}
+          onValueChange={handleColor}
+          orientation='horizontal'
         />
         <Button
           style={{
