@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import { RadioGroup, Radio, RadioLabel, Indicator } from "./radio"
+import PlaylistRadioGroup from "./radioPlaylist"
 import Button from "./button"
 
 const Form = React.forwardRef(
@@ -38,33 +38,11 @@ const Form = React.forwardRef(
             autoComplete='off'
           />
         </Label>
-        <RadioGroup
-          aria-label='Playlists'
+        <PlaylistRadioGroup
+          aria-label='Playlist'
           value={playlist}
           onValueChange={handlePlaylist}
-        >
-          <label>Playlists</label>
-          <Radio value='Hi' id='r1'>
-            <Indicator />
-            <RadioLabel>Hi</RadioLabel>
-          </Radio>
-          <Radio value='WTF' id='r2'>
-            <Indicator />
-            <RadioLabel>Wtf</RadioLabel>
-          </Radio>
-          <Radio value='more' id='r3'>
-            <Indicator />
-            <RadioLabel>more</RadioLabel>
-          </Radio>
-          <Radio value='test' id='r4'>
-            <Indicator />
-            <RadioLabel>test</RadioLabel>
-          </Radio>
-          <Radio value='end' id='r5'>
-            <Indicator />
-            <RadioLabel>end</RadioLabel>
-          </Radio>
-        </RadioGroup>
+        />
         <Button
           style={{
             color: "var(--color-background)",
@@ -85,7 +63,7 @@ const StyledForm = styled.form`
   height: calc(100vh - 136px);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-0);
+  gap: var(--spacing-3);
 
   @media (max-width: 543px) {
     padding-left: var(--spacing-1);
@@ -112,6 +90,7 @@ const StyledInput = styled.input`
   text-align: center;
   border: none;
   background-color: #4e4e4e;
+  color: var(--color-text);
   transition: all 0.5s ease-in-out;
 
   &:focus,

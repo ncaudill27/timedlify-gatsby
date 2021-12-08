@@ -52,6 +52,7 @@ export default createGlobalStyle`
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     background-color: var(--color-background);
+    color: var(--color-text);
   }
   img, picture, video, canvas, svg {
     display: block;
