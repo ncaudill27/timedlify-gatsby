@@ -9,7 +9,9 @@ const Form = props => {
   const handleChange = e => setName(e.target.value)
 
   const [playlist, setPlaylist] = useState("")
-  const handlePlaylist = e => setPlaylist(e.target.value)
+  const handlePlaylist = e => {
+    setPlaylist(e)
+  }
 
   const [color, setColor] = useState("")
   const handleColor = e => setColor(e.target.value)

@@ -1,8 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import RadioGroup from "./radioGroup"
-import Radio from "./radio"
+import { RadioGroup, Radio, Indicator } from "./radio"
 import Button from "./button"
 
 const Form = React.forwardRef(
@@ -24,7 +23,7 @@ const Form = React.forwardRef(
     },
     ref
   ) => {
-    console.log(name)
+    console.log(playlist)
 
     return (
       <StyledForm ref={ref} onSubmit={handleSubmit}>
@@ -39,12 +38,28 @@ const Form = React.forwardRef(
             autoComplete='off'
           />
         </Label>
-        <RadioGroup id='playlists' label='Playlists'>
-          <Radio value='Hi'>Hi</Radio>
-          <Radio value='Wtf'>wtf</Radio>
-          <Radio value='more'>more</Radio>
-          <Radio value='test'>test</Radio>
-          <Radio value='end'>wend</Radio>
+        <RadioGroup aria-label='Playlists' value={playlist} onValueChange={handlePlaylist}>
+          <label>Playlists</label>
+          <Radio value='Hi' id='r1'>
+            <Indicator />
+            <label>Hi</label>
+          </Radio>
+          <Radio value='WTF' id='r2'>
+            <Indicator />
+            <label>Wtf</label>
+          </Radio>
+          <Radio value='more' id='r3'>
+            <Indicator />
+            <label>more</label>
+          </Radio>
+          <Radio value='test' id='r4'>
+            <Indicator />
+            <label>test</label>
+          </Radio>
+          <Radio value='end' id='r5'>
+            <Indicator />
+            <label>end</label>
+          </Radio>
         </RadioGroup>
         <Button
           style={{
