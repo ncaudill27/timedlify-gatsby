@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import { RadioGroup, Radio, Indicator } from "./radio"
+import { RadioGroup, Radio, RadioLabel, Indicator } from "./radio"
 import Button from "./button"
 
 const Form = React.forwardRef(
@@ -38,27 +38,31 @@ const Form = React.forwardRef(
             autoComplete='off'
           />
         </Label>
-        <RadioGroup aria-label='Playlists' value={playlist} onValueChange={handlePlaylist}>
+        <RadioGroup
+          aria-label='Playlists'
+          value={playlist}
+          onValueChange={handlePlaylist}
+        >
           <label>Playlists</label>
           <Radio value='Hi' id='r1'>
             <Indicator />
-            <label>Hi</label>
+            <RadioLabel>Hi</RadioLabel>
           </Radio>
           <Radio value='WTF' id='r2'>
             <Indicator />
-            <label>Wtf</label>
+            <RadioLabel>Wtf</RadioLabel>
           </Radio>
           <Radio value='more' id='r3'>
             <Indicator />
-            <label>more</label>
+            <RadioLabel>more</RadioLabel>
           </Radio>
           <Radio value='test' id='r4'>
             <Indicator />
-            <label>test</label>
+            <RadioLabel>test</RadioLabel>
           </Radio>
           <Radio value='end' id='r5'>
             <Indicator />
-            <label>end</label>
+            <RadioLabel>end</RadioLabel>
           </Radio>
         </RadioGroup>
         <Button
@@ -108,7 +112,6 @@ const StyledInput = styled.input`
   text-align: center;
   border: none;
   background-color: #4e4e4e;
-  color: var(--color-text);
   transition: all 0.5s ease-in-out;
 
   &:focus,
