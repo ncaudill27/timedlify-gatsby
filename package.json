@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@radix-ui/react-label": "^0.1.1",
     "@radix-ui/react-radio-group": "^0.1.1",
     "babel-plugin-styled-components": "^2.0.2",
     "gatsby": "^4.3.0",

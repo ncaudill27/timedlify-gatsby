@@ -37,22 +37,26 @@ const StyledRadioGroup = styled(BaseRadioGroup)`
 
 const StyledRadio = styled(BaseRadio)`
   border-radius: 5px;
-  width: 100%;
 `
 
 const glow = keyframes`
   0% {
-    box-shadow: -2px -1px 5px 1px #0c0c0c inset, 2px 1px 5px 1px #0c0c0c inset;
+    box-shadow:
+      -2px -1px 5px 1px #0c0c0c inset,
+      2px 1px 5px 1px #0c0c0c inset;
   }
-
   50% {
-    box-shadow: -1px 0 2px 0 #0c0c0c inset, 1px 0 2px 0 #0c0c0c inset;
+    box-shadow:
+      -1px 0 2px 0 #0c0c0c inset,
+      1px 0 2px 0 #0c0c0c inset;
   }
-
   100% {
-    box-shadow: -2px -1px 5px 1px #0c0c0c inset, 2px 1px 5px 1px #0c0c0c inset;
+    box-shadow:
+      -2px -1px 5px 1px #0c0c0c inset,
+      2px 1px 5px 1px #0c0c0c inset;
   }
 `
+
 const StyledRadioLabel = styled(BaseRadioLabel)`
   display: block;
   padding: var(--spacing-1);

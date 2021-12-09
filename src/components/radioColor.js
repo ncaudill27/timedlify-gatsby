@@ -39,28 +39,28 @@ const StyledRadio = styled(BaseRadio)`
 const dance = keyframes`
   0% {
     transform: 
-    translate(1px, 1px)
-    rotate(10deg);
+      translate(1px, 1px)
+      rotate(10deg);
   }
   25% {
     transform:
-    translate(-1px, 1px)
+      translate(-1px, 1px)
       rotate(-6deg);
-    }
+  }
   50% {
     transform: 
-    translate(-1px, 1px)
-    rotate(8deg);
+      translate(-1px, 1px)
+      rotate(8deg);
   }
   75% {
     transform: 
-    translate(-1px, -1px)
-    rotate(-1deg);
+      translate(-1px, -1px)
+      rotate(-1deg);
   }
   100% {
     transform: 
-    translate(1px, 1px)
-    rotate(10deg);
+      translate(1px, 1px)
+      rotate(10deg);
   }
 `
 
