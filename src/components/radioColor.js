@@ -24,11 +24,10 @@ const ColorRadio = ({ color }) => (
 )
 
 const StyledRadioGroup = styled(BaseRadioGroup)`
-  margin-top: 25px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-items: center;
-  align-items: flex-end;
+  align-content: center;
 `
 
 const StyledRadio = styled(BaseRadio)`
@@ -67,14 +66,17 @@ const dance = keyframes`
 
 const StyledRadioLabel = styled(BaseRadioLabel)`
   display: block;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   background-color: var(--background-color);
+  transition: all 0.25s ease-in-out;
 
   ${StyledRadio}[data-state="checked"] & {
     width: 60px;
     height: 60px;
-    transition: all 0.25s ease-in-out;
+  }
+
+  ${StyledRadio}:focus & {
     animation: ${dance} 0.75s linear infinite;
   }
 `

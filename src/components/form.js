@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 
 import PlaylistRadioGroup from "./radioPlaylist"
 import ColorRadioGroup from "./radioColor"
@@ -39,13 +39,14 @@ const Form = React.forwardRef(
             autoComplete='off'
           />
         </Label>
-        <Label id='playlist-title'>Playlists</Label>
         <PlaylistRadioGroup
           aria-labelledby='playlist-title'
           value={playlist}
           onValueChange={handlePlaylist}
           orientation='vertical'
-        />
+        >
+          <Label id='playlist-title'>Playlists</Label>
+        </PlaylistRadioGroup>
         <Label id='colors-title'>Select a color</Label>
         <ColorRadioGroup
           aria-labelledby='colors-title'
@@ -89,6 +90,18 @@ const Label = styled.label`
   text-align: center;
 `
 
+const glow = keyframes`
+  0% {
+    box-shadow: inset 0 0 1px 1px #00ff22, 0 0 2px 1px #00ff22;
+  }
+  50% {
+    box-shadow: inset 0 0 1px 1px #00ff22, 0 0 5px 2px #00ff22;
+  }
+  100% {
+    box-shadow: inset 0 0 1px 1px #00ff22, 0 0 2px 2px #00ff22;
+  }
+`
+
 const StyledInput = styled.input`
   display: block;
   margin-top: var(--spacing-0);
@@ -107,19 +120,7 @@ const StyledInput = styled.input`
   &:active {
     width: 70%;
     outline: 0.5px solid #00ff22;
-    animation: input-glow 3s linear infinite;
-  }
-
-  @keyframes input-glow {
-    0% {
-      box-shadow: inset 0 0 1px 1px #00ff22, 0 0 2px 1px #00ff22;
-    }
-    50% {
-      box-shadow: inset 0 0 1px 1px #00ff22, 0 0 5px 2px #00ff22;
-    }
-    100% {
-      box-shadow: inset 0 0 1px 1px #00ff22, 0 0 2px 2px #00ff22;
-    }
+    animation: ${glow} 3s linear infinite;
   }
 `
 
