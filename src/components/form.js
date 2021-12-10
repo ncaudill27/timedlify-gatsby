@@ -1,6 +1,7 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
 
+import Label from "./label"
 import PlaylistRadioGroup from "./radioPlaylist"
 import ColorRadioGroup from "./radioColor"
 import Button from "./button"
@@ -78,14 +79,6 @@ const StyledForm = styled.form`
     padding-left: var(--spacing-1);
     padding-right: var(--spacing-1);
   }
-`
-
-const Label = styled.label`
-  display: block;
-  font-size: ${18 / 16}rem; // 18px
-  font-weight: 600;
-  color: var(--color-text);
-  text-align: center;
 `
 
 const glow = keyframes`
