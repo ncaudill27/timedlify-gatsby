@@ -13,6 +13,7 @@ const NumberInput = ({ name, value, onChange }) => (
 
 const TimeLabel = styled(Label)`
   flex: 1;
+  margin-top: var(--spacing-2);
 `
 
 const TimeInput = styled.input`

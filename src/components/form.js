@@ -6,6 +6,7 @@ import PlaylistRadioGroup from "./radioPlaylist"
 import ColorRadioGroup from "./radioColor"
 import Button from "./button"
 import NumberInput from "./inputNumber"
+import TimerDurationGroup from "./timerDurationGroup"
 
 const Form = React.forwardRef(
   (
@@ -55,23 +56,15 @@ const Form = React.forwardRef(
           onValueChange={handleRadix(setColor)}
           orientation='horizontal'
         />
-        <StyledFieldset>
-          <NumberInput
-            name='hours'
-            value={hours}
-            onChange={handleChange(setHours)}
-          />
-          <NumberInput
-            name='minutes'
-            value={minutes}
-            onChange={handleChange(setMinutes)}
-          />
-          <NumberInput
-            name='seconds'
-            value={seconds}
-            onChange={handleChange(setSeconds)}
-          />
-        </StyledFieldset>
+        <TimerDurationGroup
+          hours={hours}
+          minutes={minutes}
+          seconds={seconds}
+          setHours={setHours}
+          setMinutes={setMinutes}
+          setSeconds={setSeconds}
+          handleChange={handleChange}
+        />
         <Button
           style={{
             color: "var(--color-background)",
@@ -92,7 +85,7 @@ const StyledForm = styled.form`
   height: calc(100vh - 136px);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-3);
+  gap: var(--spacing-7);
 
   @media (max-width: 543px) {
     padding-left: var(--spacing-1);
@@ -132,12 +125,6 @@ const StyledInput = styled.input`
     outline: 0.5px solid #00ff22;
     animation: ${glow} 3s linear infinite;
   }
-`
-
-const StyledFieldset = styled.fieldset`
-  all: unset;
-  display: flex;
-  gap: var(--spacing-3);
 `
 
 export default Form
