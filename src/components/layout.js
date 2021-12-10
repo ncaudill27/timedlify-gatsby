@@ -28,9 +28,7 @@ const Layout = ({ children }) => {
     <>
       <GlobalStyles />
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <MaxWidthWrapper width={960}>
-        {children}
-      </MaxWidthWrapper>
+      <MaxWidthWrapper width={700}>{children}</MaxWidthWrapper>
     </>
   )
 }

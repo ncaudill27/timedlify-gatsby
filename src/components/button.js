@@ -5,6 +5,11 @@ import styled from "styled-components"
 
 const Button = ({ variant = "fill", children, ...props }) => {
   let Component
+  const stylesObj = {
+    "--width": "100%",
+    ...props.style,
+  }
+
   if (variant === "fill") {
     Component = FillButton
   } else if (variant === "outline") {
@@ -18,10 +23,11 @@ const Button = ({ variant = "fill", children, ...props }) => {
       <Link
         style={{
           textDecoration: "none",
+          "--width": "100%",
         }}
         {...props}
       >
-        <Component style={{ ...props.style }}>{children}</Component>
+        <Component style={stylesObj}>{children}</Component>
       </Link>
     )
   }

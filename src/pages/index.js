@@ -1,4 +1,5 @@
 import * as React from "react"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -9,11 +10,11 @@ import Footer from "../components/footer"
 const IndexPage = () => (
   <Layout>
     <Seo title='Home' />
-    <main>
+    <StyledMain>
       <Button style={{ backgroundColor: "#ff7300" }}>HIIT Interval</Button>
       <Button style={{ backgroundColor: "#ff0000" }}>Work Wake-Up</Button>
       <Button style={{ backgroundColor: "#ae00ff" }}>Wind Down</Button>
-    </main>
+    </StyledMain>
     <Footer>
       <Button
         to='/new'
@@ -26,5 +27,10 @@ const IndexPage = () => (
     </Footer>
   </Layout>
 )
+
+const StyledMain = styled.main`
+  display: flex;
+  flex-direction: column;
+`
 
 export default IndexPage

@@ -6,7 +6,7 @@ import MaxWidthWrapper from "../components/maxWidthWrapper"
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>
-    <MaxWidthWrapper width={960}>
+    <MaxWidthWrapper width={700}>
       <h1 style={{ margin: 0 }}>
         <Link
           to='/'

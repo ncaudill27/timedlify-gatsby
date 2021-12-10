@@ -4,7 +4,7 @@ import MaxWidthWrapper from "./maxWidthWrapper"
 
 const Footer = props => (
   <StyledFooter {...props}>
-    <MaxWidthWrapper width={960}>{props.children}</MaxWidthWrapper>
+    <MaxWidthWrapper width={700}>{props.children}</MaxWidthWrapper>
   </StyledFooter>
 )
 
