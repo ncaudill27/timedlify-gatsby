@@ -6,41 +6,18 @@ const Form = props => {
   const formEl = useRef()
 
   const [name, setName] = useState("")
-  const handleChange = e => setName(e.target.value)
-
   const [playlist, setPlaylist] = useState("")
-  const handlePlaylist = e => setPlaylist(e)
-
   const [color, setColor] = useState("")
-  const handleColor = e => setColor(e)
-
-  const [hours, setHours] = useState(12)
-  const handleHours = val => {
-    if (val < 1) setHours(12)
-    else if (val > 12) setHours(1)
-    else setHours(val)
-  }
-
+  const [hours, setHours] = useState(0)
   const [minutes, setMinutes] = useState(0)
-  const handleMinutes = val => {
-    if (val < 0) setMinutes(59)
-    else if (val > 59) setMinutes(0)
-    else setMinutes(val)
-  }
-
+  const [seconds, setSeconds] = useState(0)
   const [noon, setNoon] = useState("PM")
-  const handleNoon = val => setNoon(val)
+  const handleChange = setFn => e => setFn(e.target.value)
+  const handleRadix = setFn => val => setFn(val)
 
   const handleSubmit = e => {
     e.preventDefault()
-    let data = {}
-    const formData = new FormData(formEl.current)
-
-    for (const pair of formData.entries()) {
-      data[pair[0]] = pair[1]
-    }
-    // TODO figure out better way to get this data
-    console.log(data)
+    console.log(name, playlist, color, hours, minutes, seconds)
   }
 
   const formLogic = {
@@ -49,14 +26,16 @@ const Form = props => {
     color,
     hours,
     minutes,
-    noon,
-    handleChange,
-    handlePlaylist,
-    handleColor,
-    handleHours,
-    handleMinutes,
-    handleNoon,
+    seconds,
+    setName,
+    setPlaylist,
+    setColor,
+    setHours,
+    setMinutes,
+    setSeconds,
     handleSubmit,
+    handleChange,
+    handleRadix,
   }
 
   return <StyledForm ref={formEl} {...{ ...formLogic, ...props }} />

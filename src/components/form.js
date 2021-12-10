@@ -14,14 +14,16 @@ const Form = React.forwardRef(
       color,
       hours,
       minutes,
-      noon,
-      handleChange,
-      handlePlaylist,
-      handleColor,
-      handleHours,
-      handleMinutes,
-      handleNoon,
+      seconds,
+      setName,
+      setPlaylist,
+      setColor,
+      setHours,
+      setMinutes,
+      setSeconds,
       handleSubmit,
+      handleChange,
+      handleRadix,
     },
     ref
   ) => {
@@ -34,7 +36,7 @@ const Form = React.forwardRef(
             type='text'
             name='name'
             value={name}
-            onChange={handleChange}
+            onChange={handleChange(setName)}
             autoComplete='off'
           />
         </Label>
@@ -42,16 +44,45 @@ const Form = React.forwardRef(
           groupName='Playlists'
           aria-labelledby='playlist-title'
           value={playlist}
-          onValueChange={handlePlaylist}
+          onValueChange={handleRadix(setPlaylist)}
           orientation='vertical'
         />
         <ColorRadioGroup
           groupName='Colors'
           aria-labelledby='colors-title'
           value={color}
-          onValueChange={handleColor}
+          onValueChange={handleRadix(setColor)}
           orientation='horizontal'
         />
+        <StyledFieldset>
+          <TimeLabel htmlFor='hours'>
+            Hours
+            <TimeInput
+              id='hours'
+              type='number'
+              value={hours}
+              onChange={handleChange(setHours)}
+            />
+          </TimeLabel>
+          <TimeLabel htmlFor='minutes'>
+            Minutes
+            <TimeInput
+              id='minutes'
+              type='number'
+              value={minutes}
+              onChange={handleChange(setMinutes)}
+            />
+          </TimeLabel>
+          <TimeLabel htmlFor='seconds'>
+            Seconds
+            <TimeInput
+              id='seconds'
+              type='number'
+              value={seconds}
+              onChange={handleChange(setSeconds)}
+            />
+          </TimeLabel>
+        </StyledFieldset>
         <Button
           style={{
             color: "var(--color-background)",
@@ -112,6 +143,20 @@ const StyledInput = styled.input`
     outline: 0.5px solid #00ff22;
     animation: ${glow} 3s linear infinite;
   }
+`
+
+const StyledFieldset = styled.fieldset`
+  all: unset;
+  display: flex;
+  gap: var(--spacing-3);
+`
+
+const TimeLabel = styled(Label)`
+  flex: 1;
+`
+
+const TimeInput = styled.input`
+  width: 100%;
 `
 
 export default Form
