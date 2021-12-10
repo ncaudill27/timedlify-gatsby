@@ -5,8 +5,8 @@ import Label from "./label"
 import PlaylistRadioGroup from "./radioPlaylist"
 import ColorRadioGroup from "./radioColor"
 import Button from "./button"
-import NumberInput from "./inputNumber"
 import TimerDurationGroup from "./timerDurationGroup"
+import IntervalCheckbox from "./checkboxInterval"
 
 const Form = React.forwardRef(
   (
@@ -65,6 +65,7 @@ const Form = React.forwardRef(
           setSeconds={setSeconds}
           handleChange={handleChange}
         />
+        <IntervalCheckbox />
         <Button
           style={{
             color: "var(--color-background)",
@@ -115,7 +116,7 @@ const StyledInput = styled.input`
 
   text-align: center;
   border: none;
-  background-color: #4e4e4e;
+  background-color: var(--color-background-tint);
   color: var(--color-text);
   transition: all 0.5s ease-in-out;
 
