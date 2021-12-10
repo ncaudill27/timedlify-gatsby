@@ -3,8 +3,8 @@ import styled from "styled-components"
 
 const Label = styled(LabelPrimitive.Root)`
   display: block;
-  font-size: ${18 / 16}rem; // 18px
-  font-weight: 600;
+  font-size: ${22 / 16}rem;
+  font-weight: 400;
   color: var(--color-text);
   text-align: center;
 `

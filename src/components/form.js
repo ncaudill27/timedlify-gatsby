@@ -39,15 +39,14 @@ const Form = React.forwardRef(
           />
         </Label>
         <PlaylistRadioGroup
+          groupName='Playlists'
           aria-labelledby='playlist-title'
           value={playlist}
           onValueChange={handlePlaylist}
           orientation='vertical'
-        >
-          <Label id='playlist-title'>Playlists</Label>
-        </PlaylistRadioGroup>
-        <Label id='colors-title'>Select a color</Label>
+        />
         <ColorRadioGroup
+          groupName='Colors'
           aria-labelledby='colors-title'
           value={color}
           onValueChange={handleColor}

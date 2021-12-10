@@ -5,7 +5,6 @@ import styled, { keyframes } from "styled-components"
 
 const PlaylistRadioGroup = props => (
   <StyledRadioGroup {...props}>
-    {props.children}
     <StyledRadio value='Hi' id='r1'>
       <Indicator />
       <StyledRadioLabel htmlFor='r1'>Hi</StyledRadioLabel>
@@ -37,6 +36,10 @@ const StyledRadioGroup = styled(BaseRadioGroup)`
 
 const StyledRadio = styled(BaseRadio)`
   border-radius: 5px;
+
+  &:first-of-type {
+    margin-top: calc(var(--spacing-0) * -1);
+  }
 `
 
 const glow = keyframes`

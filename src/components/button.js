@@ -100,7 +100,7 @@ const GhostButton = styled(ButtonBase)`
 `
 
 Button.propTypes = {
-  variant: PropTypes.oneOf(["fill", "variant", "ghost"]).isRequired,
+  variant: PropTypes.oneOf(["fill", "variant", "ghost"]),
 }
 
 Button.defaultProps = {
