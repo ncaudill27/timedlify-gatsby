@@ -5,6 +5,7 @@ import Label from "./label"
 import PlaylistRadioGroup from "./radioPlaylist"
 import ColorRadioGroup from "./radioColor"
 import Button from "./button"
+import NumberInput from "./inputNumber"
 
 const Form = React.forwardRef(
   (
@@ -30,7 +31,7 @@ const Form = React.forwardRef(
     return (
       <StyledForm ref={ref} onSubmit={handleSubmit}>
         <Label htmlFor='name'>
-          Name
+          Timer Name
           <StyledInput
             id='name'
             type='text'
@@ -41,47 +42,35 @@ const Form = React.forwardRef(
           />
         </Label>
         <PlaylistRadioGroup
-          groupName='Playlists'
+          groupName='playlists'
           aria-labelledby='playlist-title'
           value={playlist}
           onValueChange={handleRadix(setPlaylist)}
           orientation='vertical'
         />
         <ColorRadioGroup
-          groupName='Colors'
+          groupName='colors'
           aria-labelledby='colors-title'
           value={color}
           onValueChange={handleRadix(setColor)}
           orientation='horizontal'
         />
         <StyledFieldset>
-          <TimeLabel htmlFor='hours'>
-            Hours
-            <TimeInput
-              id='hours'
-              type='number'
-              value={hours}
-              onChange={handleChange(setHours)}
-            />
-          </TimeLabel>
-          <TimeLabel htmlFor='minutes'>
-            Minutes
-            <TimeInput
-              id='minutes'
-              type='number'
-              value={minutes}
-              onChange={handleChange(setMinutes)}
-            />
-          </TimeLabel>
-          <TimeLabel htmlFor='seconds'>
-            Seconds
-            <TimeInput
-              id='seconds'
-              type='number'
-              value={seconds}
-              onChange={handleChange(setSeconds)}
-            />
-          </TimeLabel>
+          <NumberInput
+            name='hours'
+            value={hours}
+            onChange={handleChange(setHours)}
+          />
+          <NumberInput
+            name='minutes'
+            value={minutes}
+            onChange={handleChange(setMinutes)}
+          />
+          <NumberInput
+            name='seconds'
+            value={seconds}
+            onChange={handleChange(setSeconds)}
+          />
         </StyledFieldset>
         <Button
           style={{
@@ -125,7 +114,7 @@ const glow = keyframes`
 
 const StyledInput = styled.input`
   display: block;
-  margin-top: var(--spacing-0);
+  margin-top: var(--spacing-2);
   margin-left: auto;
   margin-right: auto;
   height: var(--spacing-3);
@@ -149,14 +138,6 @@ const StyledFieldset = styled.fieldset`
   all: unset;
   display: flex;
   gap: var(--spacing-3);
-`
-
-const TimeLabel = styled(Label)`
-  flex: 1;
-`
-
-const TimeInput = styled.input`
-  width: 100%;
 `
 
 export default Form
