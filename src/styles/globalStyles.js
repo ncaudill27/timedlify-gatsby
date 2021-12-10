@@ -34,6 +34,27 @@ export default createGlobalStyle`
   --color-primary: 	hsl(128deg, 100%, 50%); // #00ff22
   --color-primary-muted: 	hsl(128deg, 100%, 70%); // #00ff22
   --color-secondary: hsl(3deg, 100%, 43%);
+  /* ----------
+  SHADOW VARIABLES
+  ---------- */
+  --shadow-color: 0deg 0% 5%;
+  --shadow-elevation-low:
+    0px 0.5px 0.7px hsl(var(--shadow-color) / 0.14),
+    0px 0.9px 1.2px -0.5px hsl(var(--shadow-color) / 0.28),
+    0px 2px 2.7px -1px hsl(var(--shadow-color) / 0.41);
+  --shadow-elevation-medium:
+    0px 0.5px 0.7px hsl(var(--shadow-color) / 0.14),
+    0px 2.1px 2.8px -0.3px hsl(var(--shadow-color) / 0.25),
+    0px 4.5px 6.1px -0.7px hsl(var(--shadow-color) / 0.36),
+    0.1px 9.8px 13.2px -1px hsl(var(--shadow-color) / 0.47);
+  --shadow-elevation-high:
+    0px 0.5px 0.7px hsl(var(--shadow-color) / 0.15),
+    0px 4.7px 6.3px -0.2px hsl(var(--shadow-color) / 0.22),
+    0.1px 8.7px 11.7px -0.3px hsl(var(--shadow-color) / 0.28),
+    0.1px 13.8px 18.6px -0.5px hsl(var(--shadow-color) / 0.35),
+    0.2px 21.2px 28.6px -0.7px hsl(var(--shadow-color) / 0.42),
+    0.2px 32.5px 43.9px -0.8px hsl(var(--shadow-color) / 0.48),
+    0.4px 48.8px 65.9px -1px hsl(var(--shadow-color) / 0.55);
   }
   /*
     Josh's Custom CSS Reset

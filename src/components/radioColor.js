@@ -70,10 +70,12 @@ const StyledRadioLabel = styled(BaseRadioLabel)`
   height: 45px;
   background-color: var(--background-color);
   transition: all 0.25s ease-in-out;
+  box-shadow: var(--shadow-elevation-low);
 
   ${StyledRadio}[data-state="checked"] & {
     width: 60px;
     height: 60px;
+    box-shadow: var(--shadow-elevation-medium);
   }
 
   ${StyledRadio}:focus & {

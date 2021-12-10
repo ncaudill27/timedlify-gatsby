@@ -27,6 +27,7 @@ const StyledHeader = styled.header`
   padding-bottom: var(--spacing-1);
   background-color: var(--color-background-shade);
   text-align: center;
+  box-shadow: var(--shadow-elevation-low);
 `
 
 Header.propTypes = {

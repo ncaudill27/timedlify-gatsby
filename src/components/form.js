@@ -24,8 +24,6 @@ const Form = React.forwardRef(
     },
     ref
   ) => {
-    console.log(playlist)
-
     return (
       <StyledForm ref={ref} onSubmit={handleSubmit}>
         <Label htmlFor='name'>

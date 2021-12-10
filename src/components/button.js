@@ -43,6 +43,7 @@ const ButtonBase = styled.button`
   border-radius: 50px;
   appearance: none;
   font-weight: 600;
+  box-shadow: var(--shadow-elevation-medium);
 
   font-family: var(--font-family-primary);
   --type-fontsize-min: ${26 / 16}rem; // 18px

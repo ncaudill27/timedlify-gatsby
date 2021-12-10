@@ -13,8 +13,18 @@ const StyledFooter = styled.footer`
   width: 100%;
   bottom: 0;
   left: 0;
-  color: var(--color-background);
-  border-top: 3px solid var(--color-background-tint);
-`
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
+  color: var(--color-background-shade);
 
+  &:before {
+    position: absolute;
+    content: "";
+    top: -3px;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-background-tint);
+    box-shadow: var(--shadow-elevation-low);
+  }
+`
 export default Footer
