@@ -7,6 +7,7 @@ import ColorRadioGroup from "./radioColor"
 import Button from "./button"
 import TimerDurationGroup from "./timerDurationGroup"
 import IntervalCheckbox from "./checkboxInterval"
+import NumberHidden from "./hiddenNumber"
 
 const Form = React.forwardRef(
   (
@@ -69,10 +70,19 @@ const Form = React.forwardRef(
           setSeconds={setSeconds}
           handleChange={handleChange}
         />
-        <IntervalCheckbox
-          checked={isInterval}
-          onCheckedChange={handleRadix(setIsInterval)}
-        />
+        <Flex>
+          <IntervalCheckbox
+            id='ic1'
+            aria-expanded={isInterval}
+            checked={isInterval}
+            onCheckedChange={handleRadix(setIsInterval)}
+          />
+          <NumberHidden
+            name='interval (seconds)'
+            isOpen={isInterval}
+            aria-labelledby='ic1'
+          />
+        </Flex>
         <Button
           style={{
             color: "var(--color-background)",
@@ -133,6 +143,11 @@ const StyledInput = styled.input`
       box-shadow: inset 0 0 1px 1px #00ff22, 0 0 2px 1px #00ff22;
     }
   }
+`
+
+const Flex = styled.div`
+  display: flex;
+  align-items: center;
 `
 
 export default Form
