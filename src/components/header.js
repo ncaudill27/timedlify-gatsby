@@ -25,7 +25,7 @@ const Header = ({ siteTitle }) => (
 const StyledHeader = styled.header`
   padding-top: var(--spacing-1);
   padding-bottom: var(--spacing-1);
-  background-color: var(--color-background-shade);
+  background-color: var(--color-background-dark);
   text-align: center;
   box-shadow: var(--shadow-elevation-low);
 `

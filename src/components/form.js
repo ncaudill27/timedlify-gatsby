@@ -8,6 +8,7 @@ import Button from "./button"
 import TimerDurationGroup from "./timerDurationGroup"
 import IntervalCheckbox from "./checkboxInterval"
 import NumberHidden from "./hiddenNumber"
+import { EyeNoneIcon } from "@radix-ui/react-icons"
 
 const Form = React.forwardRef(
   (
@@ -70,7 +71,15 @@ const Form = React.forwardRef(
           setSeconds={setSeconds}
           handleChange={handleChange}
         />
-        <Flex>
+        <IntervalFieldset
+          style={{
+            "--padding": isInterval ? "var(--spacing-1)" : 0,
+            "--background-color": isInterval
+              ? "var(--color-background-dark)"
+              : "inherit",
+            "--box-shadow": isInterval ? "var(--shadow-elevation-low)" : "none",
+          }}
+        >
           <IntervalCheckbox
             id='ic1'
             aria-expanded={isInterval}
@@ -82,7 +91,7 @@ const Form = React.forwardRef(
             isOpen={isInterval}
             aria-labelledby='ic1'
           />
-        </Flex>
+        </IntervalFieldset>
         <Button
           style={{
             color: "var(--color-background)",
@@ -97,6 +106,19 @@ const Form = React.forwardRef(
     )
   }
 )
+
+const IntervalFieldset = styled.fieldset`
+  all: unset;
+  height: fit-content;
+  width: fit-content;
+  padding: var(--padding);
+
+  border-radius: 5px;
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow);
+
+  transition: all 250ms ease-in-out;
+`
 
 const StyledForm = styled.form`
   margin-top: var(--spacing-6);
@@ -121,7 +143,7 @@ const StyledInput = styled.input`
 
   text-align: center;
   border: none;
-  background-color: var(--color-background-tint);
+  background-color: var(--color-background-light);
   color: var(--color-text);
   transition: all 0.5s ease-in-out;
 

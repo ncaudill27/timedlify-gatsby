@@ -12,7 +12,7 @@ const StyledCheckbox = styled(CheckboxPrimitive.Root)`
   height: 25px;
 
   border-radius: 4px;
-  background-color: var(--color-background-tint);
+  background-color: var(--color-background-light);
 
   box-shadow: var(--shadow-elevation-low);
 `

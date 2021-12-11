@@ -25,7 +25,7 @@ const TimeInput = styled.input`
 
   text-align: center;
   border: none;
-  background-color: var(--color-background-tint);
+  background-color: var(--color-background-light);
   color: var(--color-text);
   transition: all 0.5s ease-in-out;
 

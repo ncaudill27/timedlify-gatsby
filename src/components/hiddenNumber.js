@@ -14,7 +14,6 @@ const NumberHidden = ({ isOpen, ...props }) => (
 )
 
 const HidingInput = styled(NumberInput)`
-  flex: unset;
   position: relative;
 
   visibility: var(--visibility);
@@ -25,13 +24,7 @@ const HidingInput = styled(NumberInput)`
   border-radius: 5px;
 
   white-space: nowrap;
-  background: var(--color-background-shade);
   text-align: center;
-  box-shadow: var(--shadow-elevation-low);
-
-  & > * {
-    flex: 1;
-  }
 
   &:before {
     position: absolute;
@@ -44,7 +37,7 @@ const HidingInput = styled(NumberInput)`
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
 
-    border-right: 10px solid var(--color-background-shade);
+    border-right: 10px solid var(--color-background-dark);
   }
 
   /* ----------
@@ -52,6 +45,10 @@ const HidingInput = styled(NumberInput)`
     display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-1);
+    & > * {
+    flex: 1;
+  }
+
   ---------- */
 `
 

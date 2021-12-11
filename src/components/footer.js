@@ -15,7 +15,7 @@ const StyledFooter = styled.footer`
   left: 0;
   padding-top: var(--spacing-1);
   padding-bottom: var(--spacing-1);
-  color: var(--color-background-shade);
+  color: var(--color-background-dark);
 
   &:before {
     position: absolute;
@@ -23,7 +23,7 @@ const StyledFooter = styled.footer`
     top: -3px;
     width: 100%;
     height: 3px;
-    background-color: var(--color-background-tint);
+    background-color: var(--color-background-light);
     box-shadow: var(--shadow-elevation-low);
   }
 `
