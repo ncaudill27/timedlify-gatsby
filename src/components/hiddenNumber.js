@@ -14,15 +14,45 @@ const NumberHidden = ({ isOpen, ...props }) => (
 )
 
 const HidingInput = styled(NumberInput)`
-  visibility: var(--visibility);
   flex: unset;
-  margin: 0;
-  margin-left: auto;
+  position: relative;
+
+  visibility: var(--visibility);
   opacity: var(--opacity);
-  display: flex;
-  gap: var(--spacing-1);
-  align-items: center;
+
+  margin: 0;
+  padding: var(--spacing-0) var(--spacing-1);
+  border-radius: 5px;
+
   white-space: nowrap;
+  background: var(--color-background-shade);
+  text-align: center;
+  box-shadow: var(--shadow-elevation-low);
+
+  & > * {
+    flex: 1;
+  }
+
+  &:before {
+    position: absolute;
+    content: "";
+    left: -10px;
+    top: 50%;
+    margin-top: -10px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+
+    border-right: 10px solid var(--color-background-shade);
+  }
+
+  /* ----------
+    Future media break props
+    display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-1);
+  ---------- */
 `
 
 export default NumberHidden

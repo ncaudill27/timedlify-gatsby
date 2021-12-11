@@ -12,11 +12,12 @@ const IntervalCheckbox = props => (
         <CheckIcon />
       </CheckboxIndicator>
     </Checkbox>
-    Repeating timer
+    Interval
   </Label>
 )
 
 const Label = styled(LabelPrimitive.Root)`
+  flex: 1;
   display: flex;
   align-items: center;
   padding-left: 0;

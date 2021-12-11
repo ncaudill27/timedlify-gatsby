@@ -24,7 +24,7 @@ export default createGlobalStyle`
   --color-text:	white;
   --color-text-tint: hsl(183deg, 18%, 40%);
   --color-text-shade: hsl(183deg, 18%, 15%);
-  --color-text-transparent: hsl(183deg, 28%, 88%);//#D8E8E9 color based on color text at 0.1 alpha
+  --color-text-transparent: hsl(0deg, 0%, 88%);//#D8E8E9 color based on color text at 0.1 alpha
   --color-text-transparent-2: hsl(183deg, 21%, 85%);//#D0DFE0 color based on color text at 0.15 alpha
   --color-text-transparent-3: hsl(184deg, 18%, 81%);//#C6D6D7 color based on color text at 0.2 alpha
   --color-background: hsl(0deg, 0%, 15%);//#ebf9fa

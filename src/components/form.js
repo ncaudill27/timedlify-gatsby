@@ -78,7 +78,7 @@ const Form = React.forwardRef(
             onCheckedChange={handleRadix(setIsInterval)}
           />
           <NumberHidden
-            name='interval (seconds)'
+            name='rest time'
             isOpen={isInterval}
             aria-labelledby='ic1'
           />
@@ -148,6 +148,7 @@ const StyledInput = styled.input`
 const Flex = styled.div`
   display: flex;
   align-items: center;
+  gap: var(--spacing-2);
 `
 
 export default Form
