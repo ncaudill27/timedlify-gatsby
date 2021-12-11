@@ -11,13 +11,23 @@ const Form = props => {
   const [hours, setHours] = useState(0)
   const [minutes, setMinutes] = useState(0)
   const [seconds, setSeconds] = useState(0)
-  const [noon, setNoon] = useState("PM")
+  const [isInterval, setIsInterval] = useState(false)
+  const [restInterval, setRestInterval] = useState(0)
   const handleChange = setFn => e => setFn(e.target.value)
   const handleRadix = setFn => val => setFn(val)
 
   const handleSubmit = e => {
     e.preventDefault()
-    console.log(name, playlist, color, hours, minutes, seconds)
+    console.log(
+      name,
+      playlist,
+      color,
+      hours,
+      minutes,
+      seconds,
+      isInterval,
+      restInterval
+    )
   }
 
   const formLogic = {
@@ -27,12 +37,16 @@ const Form = props => {
     hours,
     minutes,
     seconds,
+    isInterval,
+    setIsInterval,
     setName,
     setPlaylist,
     setColor,
     setHours,
     setMinutes,
     setSeconds,
+    restInterval,
+    setRestInterval,
     handleSubmit,
     handleChange,
     handleRadix,

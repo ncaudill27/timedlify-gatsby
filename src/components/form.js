@@ -1,5 +1,5 @@
 import React from "react"
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
 
 import Label from "./label"
 import PlaylistRadioGroup from "./radioPlaylist"
@@ -17,12 +17,16 @@ const Form = React.forwardRef(
       hours,
       minutes,
       seconds,
+      isInterval,
+      setIsInterval,
       setName,
       setPlaylist,
       setColor,
       setHours,
       setMinutes,
       setSeconds,
+      restInterval,
+      setRestInterval,
       handleSubmit,
       handleChange,
       handleRadix,
@@ -65,7 +69,10 @@ const Form = React.forwardRef(
           setSeconds={setSeconds}
           handleChange={handleChange}
         />
-        <IntervalCheckbox />
+        <IntervalCheckbox
+          checked={isInterval}
+          onCheckedChange={handleRadix(setIsInterval)}
+        />
         <Button
           style={{
             color: "var(--color-background)",

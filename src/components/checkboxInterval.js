@@ -5,9 +5,9 @@ import * as LabelPrimitive from "@radix-ui/react-label"
 import { CheckIcon } from "@radix-ui/react-icons"
 import { Checkbox, CheckboxIndicator } from "./checkbox"
 
-const IntervalCheckbox = () => (
+const IntervalCheckbox = props => (
   <Label htmlFor='c1'>
-    <Checkbox id='c1'>
+    <Checkbox id='c1' {...props}>
       <CheckboxIndicator>
         <CheckIcon />
       </CheckboxIndicator>
@@ -15,8 +15,6 @@ const IntervalCheckbox = () => (
     Repeating timer
   </Label>
 )
-
-const Flex = styled.div``
 
 const Label = styled(LabelPrimitive.Root)`
   display: flex;

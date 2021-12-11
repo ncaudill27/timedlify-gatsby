@@ -15,14 +15,10 @@ const StyledCheckbox = styled(CheckboxPrimitive.Root)`
   background-color: var(--color-background-tint);
 
   box-shadow: var(--shadow-elevation-low);
-
-  &:focus: {
-    box-shadow: var(--shadow-elevation-medium);
-  }
 `
 
 const StyledIndicator = styled(CheckboxPrimitive.Indicator)`
-  color: red;
+  color: var(--color-text);
 `
 
 // Exports
