@@ -8,13 +8,13 @@ import { Checkbox, CheckboxIndicator } from "./checkbox"
 const IntervalCheckbox = () => (
   <form>
     <Flex>
-      <Checkbox defaultChecked id='c1'>
+      <Checkbox id='c1'>
         <CheckboxIndicator>
           <CheckIcon />
         </CheckboxIndicator>
       </Checkbox>
       <Label css={{ paddingLeft: 15 }} htmlFor='c1'>
-        Accept terms and conditions.
+        Repeating timer
       </Label>
     </Flex>
   </form>

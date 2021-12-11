@@ -42,24 +42,6 @@ const StyledRadio = styled(BaseRadio)`
   }
 `
 
-const glow = keyframes`
-  0% {
-    box-shadow:
-      -2px -1px 5px 1px #0c0c0c inset,
-      2px 1px 5px 1px #0c0c0c inset;
-  }
-  50% {
-    box-shadow:
-      -1px 0 2px 0 #0c0c0c inset,
-      1px 0 2px 0 #0c0c0c inset;
-  }
-  100% {
-    box-shadow:
-      -2px -1px 5px 1px #0c0c0c inset,
-      2px 1px 5px 1px #0c0c0c inset;
-  }
-`
-
 const StyledRadioLabel = styled(BaseRadioLabel)`
   display: block;
   padding: var(--spacing-1);
@@ -75,8 +57,21 @@ const StyledRadioLabel = styled(BaseRadioLabel)`
     background-color: #222222;
     box-shadow: -2px -1px 5px 1px #0c0c0c inset, 2px 1px 5px 1px #0c0c0c inset;
   }
+
   ${StyledRadio}:focus & {
-    animation: ${glow} 2s linear infinite;
+    animation: shimmer 2s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      box-shadow: -2px -1px 5px 1px #0c0c0c inset, 2px 1px 5px 1px #0c0c0c inset;
+    }
+    50% {
+      box-shadow: -1px 0 2px 0 #0c0c0c inset, 1px 0 2px 0 #0c0c0c inset;
+    }
+    100% {
+      box-shadow: -2px -1px 5px 1px #0c0c0c inset, 2px 1px 5px 1px #0c0c0c inset;
+    }
   }
 `
 

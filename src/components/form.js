@@ -94,24 +94,12 @@ const StyledForm = styled.form`
   }
 `
 
-const glow = keyframes`
-  0% {
-    box-shadow: inset 0 0 1px 1px #00ff22, 0 0 2px 1px #00ff22;
-  }
-  50% {
-    box-shadow: inset 0 0 1px 1px #00ff22, 0 0 5px 2px #00ff22;
-  }
-  100% {
-    box-shadow: inset 0 0 1px 1px #00ff22, 0 0 2px 2px #00ff22;
-  }
-`
-
 const StyledInput = styled.input`
   display: block;
   margin-top: var(--spacing-2);
   margin-left: auto;
   margin-right: auto;
-  height: var(--spacing-3);
+  padding: 4px var(--spacing-0);
   width: 40%;
 
   text-align: center;
@@ -124,7 +112,19 @@ const StyledInput = styled.input`
   &:active {
     width: 70%;
     outline: 0.5px solid #00ff22;
-    animation: ${glow} 3s linear infinite;
+    animation: glow 2s linear infinite;
+  }
+
+  @keyframes glow {
+    0% {
+      box-shadow: inset 0 0 1px 1px #00ff22, 0 0 2px 1px #00ff22;
+    }
+    50% {
+      box-shadow: inset 0 0 2px 2px #00ff22, 0 0 5px 2px #00ff22;
+    }
+    100% {
+      box-shadow: inset 0 0 1px 1px #00ff22, 0 0 2px 1px #00ff22;
+    }
   }
 `
 

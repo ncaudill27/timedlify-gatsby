@@ -24,62 +24,55 @@ const ColorRadio = ({ color }) => (
 )
 
 const StyledRadioGroup = styled(BaseRadioGroup)`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  justify-items: center;
-  align-content: center;
+  display: flex;
+  align-items: center;
+  height: 55px;
 `
 
 const StyledRadio = styled(BaseRadio)`
+  flex: 1;
   border-radius: 5px;
-  height: 45px;
-  width: 45px;
-`
-
-const dance = keyframes`
-  0% {
-    transform: 
-      translate(1px, 1px)
-      rotate(10deg);
-  }
-  25% {
-    transform:
-      translate(-1px, 1px)
-      rotate(-6deg);
-  }
-  50% {
-    transform: 
-      translate(-1px, 1px)
-      rotate(8deg);
-  }
-  75% {
-    transform: 
-      translate(-1px, -1px)
-      rotate(-1deg);
-  }
-  100% {
-    transform: 
-      translate(1px, 1px)
-      rotate(10deg);
-  }
+  height: 55px;
 `
 
 const StyledRadioLabel = styled(BaseRadioLabel)`
   display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 45px;
   height: 45px;
+
   background-color: var(--background-color);
+  border-radius: 5px;
+
   transition: all 0.25s ease-in-out;
   box-shadow: var(--shadow-elevation-low);
 
   ${StyledRadio}[data-state="checked"] & {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     box-shadow: var(--shadow-elevation-medium);
   }
 
   ${StyledRadio}:focus & {
-    animation: ${dance} 0.75s linear infinite;
+    animation: dance 0.75s linear infinite;
+  }
+  @keyframes dance {
+    0% {
+      transform: translate(1px, 1px) rotate(10deg);
+    }
+    25% {
+      transform: translate(-1px, 1px) rotate(-6deg);
+    }
+    50% {
+      transform: translate(-1px, 1px) rotate(6deg);
+    }
+    75% {
+      transform: translate(-1px, -1px) rotate(-6deg);
+    }
+    100% {
+      transform: translate(1px, 1px) rotate(10deg);
+    }
   }
 `
 
