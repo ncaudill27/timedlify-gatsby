@@ -171,19 +171,22 @@ const StyledInput = styled.input`
   &:focus,
   &:active {
     width: 70%;
-    outline: 0.5px solid #00ff22;
+    outline: 0.5px solid var(--color-primary);
     animation: glow 2s linear infinite;
   }
 
   @keyframes glow {
     0% {
-      box-shadow: inset 0 0 1px 1px #00ff22, 0 0 2px 1px #00ff22;
+      box-shadow: inset 0 0 1px 1px var(--color-primary),
+        0 0 2px 1px var(--color-primary);
     }
     50% {
-      box-shadow: inset 0 0 2px 2px #00ff22, 0 0 5px 2px #00ff22;
+      box-shadow: inset 0 0 2px 2px var(--color-primary),
+        0 0 5px 2px var(--color-primary);
     }
     100% {
-      box-shadow: inset 0 0 1px 1px #00ff22, 0 0 2px 1px #00ff22;
+      box-shadow: inset 0 0 1px 1px var(--color-primary),
+        0 0 2px 1px var(--color-primary);
     }
   }
 `

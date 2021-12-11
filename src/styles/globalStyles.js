@@ -30,8 +30,6 @@ export default createGlobalStyle`
   --color-background: hsl(0deg, 0%, 15%);//#ebf9fa
   --color-background-dark: hsl(0deg, 0%, 6%);
   --color-background-light: 	hsl(0deg, 0%, 31%);
-  --color-background-lighter: 	hsl(0deg, 0%, 47%);
-  --color-background-io: hsl(0deg, 0%, 97%);
   --color-primary: 	hsl(128deg, 100%, 50%); // #00ff22
   --color-primary-muted: 	hsl(128deg, 100%, 70%); // #00ff22
   --color-secondary: hsl(3deg, 100%, 43%);

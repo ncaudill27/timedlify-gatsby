@@ -7,10 +7,6 @@ const NumberHidden = ({ isOpen, ...props }) => <HidingInput {...props} />
 
 const HidingInput = styled(NumberInput)`
   flex: unset;
-
-  visibility: var(--visibility);
-  opacity: var(--opacity);
-
   margin: 0;
   /* ----------
     TRIANGLE FORMAT
