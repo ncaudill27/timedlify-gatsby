@@ -21,6 +21,7 @@ const Label = styled(LabelPrimitive.Root)`
   display: flex;
   align-items: center;
   padding-left: 0;
+  margin-bottom: var(--spacing-1);
   color: var(--color-text);
   font-size: ${22 / 16}rem;
 `

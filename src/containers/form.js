@@ -13,6 +13,7 @@ const Form = props => {
   const [seconds, setSeconds] = useState(0)
   const [isInterval, setIsInterval] = useState(false)
   const [restInterval, setRestInterval] = useState(0)
+  const [roundInterval, setRoundInterval] = useState(0)
   const handleChange = setFn => e => setFn(e.target.value)
   const handleRadix = setFn => val => setFn(val)
 
@@ -38,6 +39,7 @@ const Form = props => {
     minutes,
     seconds,
     isInterval,
+    roundInterval,
     setIsInterval,
     setName,
     setPlaylist,
@@ -47,6 +49,7 @@ const Form = props => {
     setSeconds,
     restInterval,
     setRestInterval,
+    setRoundInterval,
     handleSubmit,
     handleChange,
     handleRadix,

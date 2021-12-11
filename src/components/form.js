@@ -20,6 +20,7 @@ const Form = React.forwardRef(
       minutes,
       seconds,
       isInterval,
+      roundInterval,
       setIsInterval,
       setName,
       setPlaylist,
@@ -29,6 +30,7 @@ const Form = React.forwardRef(
       setSeconds,
       restInterval,
       setRestInterval,
+      setRoundInterval,
       handleSubmit,
       handleChange,
       handleRadix,
@@ -86,11 +88,30 @@ const Form = React.forwardRef(
             checked={isInterval}
             onCheckedChange={handleRadix(setIsInterval)}
           />
-          <NumberHidden
-            name='rest time'
-            isOpen={isInterval}
-            aria-labelledby='ic1'
-          />
+          <Flex
+            style={{
+              "--visibility": isInterval ? "visible" : "hidden",
+              "--opacity": isInterval ? 1 : 0,
+              "--height": isInterval ? "fit-content" : 0,
+            }}
+          >
+            <NumberHidden
+              name='rest time'
+              value={restInterval}
+              onChange={handleChange(setRestInterval)}
+              isOpen={isInterval}
+              aria-hidden={!isInterval}
+              aria-labelledby='ic1'
+            />
+            <NumberHidden
+              name='rounds'
+              value={roundInterval}
+              onChange={handleChange(setRoundInterval)}
+              isOpen={isInterval}
+              aria-hidden={!isInterval}
+              aria-labelledby='ic1'
+            />
+          </Flex>
         </IntervalFieldset>
         <Button
           style={{
@@ -171,6 +192,11 @@ const Flex = styled.div`
   display: flex;
   align-items: center;
   gap: var(--spacing-2);
+
+  height: var(--height);
+
+  visibility: var(--visibility);
+  opacity: var(--opacity);
 `
 
 export default Form
