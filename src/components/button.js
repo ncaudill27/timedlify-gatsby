@@ -3,13 +3,19 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
+import useGlassmorphism from "../hooks/useGlassmorphism"
+
 const Button = ({ variant = "fill", children, ...props }) => {
-  let Component
+  const buttonEl = React.useRef()
+
+  const value = useGlassmorphism(buttonEl)
+
   const stylesObj = {
     "--width": "100%",
     ...props.style,
   }
 
+  let Component
   if (variant === "fill") {
     Component = FillButton
   } else if (variant === "outline") {
@@ -31,7 +37,11 @@ const Button = ({ variant = "fill", children, ...props }) => {
       </Link>
     )
   }
-  return <Component {...props}>{children}</Component>
+  return (
+    <Component ref={buttonEl} {...props}>
+      {children}
+    </Component>
+  )
 }
 
 const ButtonBase = styled.button`

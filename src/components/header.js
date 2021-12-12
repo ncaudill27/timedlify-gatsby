@@ -4,10 +4,15 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import MaxWidthWrapper from "../components/maxWidthWrapper"
 
+import useGlassmorphism from "../hooks/useGlassmorphism"
+
 const Header = ({ siteTitle }) => {
-  console.log(siteTitle)
+  const headerEl = React.useRef()
+
+  const stuff = useGlassmorphism(headerEl)
+  
   return (
-    <StyledHeader>
+    <StyledHeader ref={headerEl}>
       <MaxWidthWrapper width={700}>
         <h1 style={{ margin: 0 }}>
           <Link
