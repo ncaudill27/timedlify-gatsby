@@ -45,3 +45,10 @@ export const rgbToHsl = rgb => {
 
   return "hsl(" + h + "," + s + "%," + l + "%)"
 }
+
+export const parseHsl = (string = "") => {
+  console.log(string)
+  const regexp =
+    /hsl\(\s*(\d+)\s*,\s*(\d+(?:\.\d+)?%)\s*,\s*(\d+(?:\.\d+)?%)\)/g
+  return string !== "" ? regexp.exec(string).slice(1) : ""
+}

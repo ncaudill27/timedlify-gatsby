@@ -9,7 +9,7 @@ import useGlassmorphism from "../hooks/useGlassmorphism"
 const Header = ({ siteTitle }) => {
   const headerEl = React.useRef()
 
-  const stuff = useGlassmorphism(headerEl)
+  // const stuff = useGlassmorphism(headerEl)
   
   return (
     <StyledHeader ref={headerEl}>

@@ -143,7 +143,6 @@ const IntervalFieldset = styled.fieldset`
 
 const StyledForm = styled.form`
   margin-top: var(--spacing-6);
-  height: calc(100vh - 136px);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-7);
