@@ -27,7 +27,7 @@ export default createGlobalStyle`
   --color-text-transparent: hsl(0deg, 0%, 88%);//#D8E8E9 color based on color text at 0.1 alpha
   --color-text-transparent-2: hsl(183deg, 21%, 85%);//#D0DFE0 color based on color text at 0.15 alpha
   --color-text-transparent-3: hsl(184deg, 18%, 81%);//#C6D6D7 color based on color text at 0.2 alpha
-  --color-background: hsl(0deg, 0%, 15%);//#ebf9fa
+  --color-background: hsl(0deg, 0%, 15%);
   --color-background-dark: hsl(0deg, 0%, 6%);
   --color-background-light: 	hsl(0deg, 0%, 31%);
   --color-primary: 	hsl(128deg, 100%, 50%); // #00ff22
@@ -54,6 +54,20 @@ export default createGlobalStyle`
     0.2px 21.2px 28.6px -0.7px hsl(var(--shadow-color) / 0.42),
     0.2px 32.5px 43.9px -0.8px hsl(var(--shadow-color) / 0.48),
     0.4px 48.8px 65.9px -1px hsl(var(--shadow-color) / 0.55);
+  /* ----------
+  GLASSMORPHISM VARIABLES
+  ---------- */
+  --glass-blur: blur(25.5px);
+  --glass-background-dark: linear-gradient(
+      159.39deg,
+      hsl(0deg, 0%, 6%, 0.8) -10%,
+      hsl(0deg, 0%, 6%, 0) 110%
+    ),
+    linear-gradient(
+      to right,
+      hsl(0deg, 0%, 6%, 0.3) 0%,
+      hsl(0deg, 0%, 6%, 0) 50%
+    );
   }
   /*
     Josh's Custom CSS Reset
