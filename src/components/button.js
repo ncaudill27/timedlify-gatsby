@@ -8,7 +8,7 @@ import useGlassmorphism from "../hooks/useGlassmorphism"
 const Button = ({ variant = "fill", children, ...props }) => {
   const buttonEl = React.useRef()
 
-  const value = useGlassmorphism(buttonEl)
+  useGlassmorphism(buttonEl)
 
   const stylesObj = {
     "--width": "100%",
@@ -29,7 +29,7 @@ const Button = ({ variant = "fill", children, ...props }) => {
       <Link
         style={{
           textDecoration: "none",
-          overflow: "hidden"
+          overflow: "hidden",
         }}
         {...props}
       >

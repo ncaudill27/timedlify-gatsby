@@ -2,6 +2,7 @@ import React from "react"
 import { BaseIndicator as Indicator } from "./radio"
 import { BaseRadioGroup, BaseRadio, BaseRadioLabel } from "./radio"
 import styled, { keyframes } from "styled-components"
+import useGlassmorphism from "../hooks/useGlassmorphism"
 
 const ColorRadioGroup = props => (
   <StyledRadioGroup {...props}>
@@ -13,15 +14,20 @@ const ColorRadioGroup = props => (
   </StyledRadioGroup>
 )
 
-const ColorRadio = ({ color }) => (
-  <StyledRadio value={color} id={color}>
-    <Indicator />
-    <StyledRadioLabel
-      style={{ "--background-color": color }}
-      htmlFor={color}
-    ></StyledRadioLabel>
-  </StyledRadio>
-)
+const ColorRadio = ({ color }) => {
+  const radioEl = React.useRef()
+  useGlassmorphism(radioEl)
+  return (
+    <StyledRadio value={color} id={color}>
+      <Indicator />
+      <StyledRadioLabel
+        ref={radioEl}
+        style={{ "--background-color": color }}
+        htmlFor={color}
+      ></StyledRadioLabel>
+    </StyledRadio>
+  )
+}
 
 const StyledRadioGroup = styled(BaseRadioGroup)`
   display: flex;

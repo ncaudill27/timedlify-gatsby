@@ -9,6 +9,7 @@ const useGlassmorphism = (ref, options) => {
     if (typeof window !== undefined && ref.current) {
       const domNode = ref.current
       const rgb = getComputedStyle(domNode).backgroundColor
+      console.log("color", rgb);
       const hsl = rgbToHsl(rgb)
       const [h, s, l] = parseHsl(hsl)
 
