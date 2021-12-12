@@ -31,6 +31,8 @@ const IndexPage = () => (
 const StyledMain = styled.main`
   display: flex;
   flex-direction: column;
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
 `
 
 export default IndexPage

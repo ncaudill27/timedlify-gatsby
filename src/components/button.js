@@ -29,11 +29,13 @@ const Button = ({ variant = "fill", children, ...props }) => {
       <Link
         style={{
           textDecoration: "none",
-          "--width": "100%",
+          overflow: "hidden"
         }}
         {...props}
       >
-        <Component style={stylesObj}>{children}</Component>
+        <Component ref={buttonEl} style={stylesObj}>
+          {children}
+        </Component>
       </Link>
     )
   }
@@ -49,7 +51,7 @@ const ButtonBase = styled.button`
   margin-top: var(--spacing-1);
   margin-bottom: var(--spacing-1);
   padding: var(--spacing-0) var(--spacing-3);
-  border: 2px solid transparent;
+  border: 0;
   border-radius: 50px;
   appearance: none;
   font-weight: 600;

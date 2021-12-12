@@ -1,3 +1,4 @@
+// https://stackoverflow.com/questions/10970958/get-a-color-component-from-an-rgb-string-in-javascript
 const parseRgb = string => {
   return string
     .substring(4, string.length - 1)
@@ -5,6 +6,7 @@ const parseRgb = string => {
     .split(",")
 }
 
+// https://css-tricks.com/converting-color-spaces-in-javascript/
 export const rgbToHsl = rgb => {
   let [r, g, b] = parseRgb(rgb)
   // Make r, g, and b fractions of 1
@@ -46,9 +48,10 @@ export const rgbToHsl = rgb => {
   return "hsl(" + h + "," + s + "%," + l + "%)"
 }
 
+// https://www.demo2s.com/javascript/javascript-regex-match-and-parse-hsl-color-string-with-regex.html
 export const parseHsl = (string = "") => {
   console.log(string)
   const regexp =
     /hsl\(\s*(\d+)\s*,\s*(\d+(?:\.\d+)?%)\s*,\s*(\d+(?:\.\d+)?%)\)/g
-  return string !== "" ? regexp.exec(string).slice(1) : ""
+  return regexp.exec(string).slice(1)
 }
