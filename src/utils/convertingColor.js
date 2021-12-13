@@ -67,3 +67,7 @@ export const extractHSLValuesFromNode = node => {
     l,
   }
 }
+
+export const stepDownValue = (value, step = 1) => {
+  return parseInt(value) * step + "%"
+}
