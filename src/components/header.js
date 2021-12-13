@@ -9,23 +9,22 @@ import useGlassmorphism from "../hooks/useGlassmorphism"
 const Header = ({ siteTitle }) => {
   const headerEl = React.useRef()
 
-  // const stuff = useGlassmorphism(headerEl)
-  
   return (
     <StyledHeader ref={headerEl}>
-      <MaxWidthWrapper width={700}>
-        <h1 style={{ margin: 0 }}>
-          <Link
-            to='/'
-            style={{
-              color: `white`,
-              textDecoration: `none`,
-            }}
-          >
-            {siteTitle}
-          </Link>
-        </h1>
-      </MaxWidthWrapper>
+      <Flex width={700}>
+        <Link
+          to='/'
+          style={{
+            color: `white`,
+            textDecoration: `none`,
+          }}
+        >
+          <Title>{siteTitle}</Title>
+        </Link>
+        <SignIn href='/.netlify/functions/authorize'>
+          Sign in with Spotify
+        </SignIn>
+      </Flex>
     </StyledHeader>
   )
 }
@@ -33,8 +32,6 @@ const Header = ({ siteTitle }) => {
 const StyledHeader = styled.header`
   position: sticky;
   top: 0;
-  padding-top: var(--spacing-1);
-  padding-bottom: var(--spacing-1);
   text-align: center;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -43,6 +40,24 @@ const StyledHeader = styled.header`
   background: var(--glass-background-dark);
   backdrop-filter: var(--glass-blur);
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+`
+
+const Flex = styled(MaxWidthWrapper)`
+  display: flex;
+  align-items: baseline;
+  padding: var(--spacing-1);
+`
+
+const Title = styled.h1`
+  margin: 0;
+  margin-right: auto;
+`
+
+const SignIn = styled.a`
+  display: block;
+  margin-left: auto;
+  color: inherit;
+  text-decoration: none;
 `
 
 Header.propTypes = {
