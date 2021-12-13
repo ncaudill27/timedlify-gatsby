@@ -55,3 +55,15 @@ export const parseHsl = (string = "") => {
     /hsl\(\s*(\d+)\s*,\s*(\d+(?:\.\d+)?%)\s*,\s*(\d+(?:\.\d+)?%)\)/g
   return regexp.exec(string).slice(1)
 }
+
+export const extractHSLValuesFromNode = node => {
+  const rgb = getComputedStyle(node).backgroundColor
+  const hsl = rgbToHsl(rgb)
+  const [h, s, l] = parseHsl(hsl)
+
+  return {
+    h,
+    s,
+    l,
+  }
+}

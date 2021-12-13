@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { rgbToHsl, parseHsl } from "../utils/convertingColor"
+import { extractHSLValuesFromNode } from "../utils/convertingColor"
 
 const useGlassmorphism = (ref, options) => {
   const [background, setBackground] = useState("")
@@ -8,14 +8,11 @@ const useGlassmorphism = (ref, options) => {
     console.log("render")
     if (typeof window !== undefined && ref.current) {
       const domNode = ref.current
-      const rgb = getComputedStyle(domNode).backgroundColor
-      console.log("color", rgb);
-      const hsl = rgbToHsl(rgb)
-      const [h, s, l] = parseHsl(hsl)
+      const { h, s, l } = extractHSLValuesFromNode(domNode)
 
-      const hsl80 = `hsl(${h}, ${s}, ${l}, 0.8)`
-      const hsl30 = `hsl(${h}, ${s}, ${l}, 0.3)`
-      const hsl0 = `hsl(${h}, ${s}, ${l}, 0)`
+      const hsl80 = `hsl(${h}, ${s}, ${parseInt(l) * 1.3 + "%"}, 0.8)`
+      const hsl30 = `hsl(${h}, ${s}, ${parseInt(l) * 1.3 + "%"}, 0.3)`
+      const hsl0 = `hsl(${h}, ${s}, ${parseInt(l) * 1.3 + "%"}, 0)`
 
       const glassBackground = `
         linear-gradient(
@@ -29,7 +26,7 @@ const useGlassmorphism = (ref, options) => {
           ${hsl0} 50%
         )
       `
-      
+
       const elevationLow = `
         0px 0.5px 0.7px hsl(${h}, ${s}, ${parseInt(l) / 3 + "%"}, 0.14),
         0px 0.9px 1.2px -0.5px hsl(${h}, ${s}, ${parseInt(l) / 3 + "%"}, 0.28),
@@ -44,8 +41,8 @@ const useGlassmorphism = (ref, options) => {
       `
 
       const elevationHigh = `
-        0px 0.5px 0.7px hsl(${h}, ${s}, ${parseInt(l) / 3 + "%"}, 0.15),
-        0px 4.7px 6.3px -0.2px hsl(${h}, ${s}, ${parseInt(l) / 3 + "%"}, 0.22),
+        0px 0.5px 0.7px hsl(${h}, ${s}, ${parseInt(l) / 2 + "%"}, 0.15),
+        0px 4.7px 6.3px -0.2px hsl(${h}, ${s}, ${parseInt(l) / 2 + "%"}, 0.22),
         0.1px 8.7px 11.7px -0.3px hsl(${h}, ${s}, ${
         parseInt(l) / 3 + "%"
       }, 0.28),
@@ -65,6 +62,7 @@ const useGlassmorphism = (ref, options) => {
       domNode.style.boxShadow = elevationMedium
       domNode.style.background = glassBackground
       domNode.style.backdropFilter = "var(--glass-blur)"
+      domNode.style.border = "1px solid rgba(255, 255, 255, 0.18)"
     }
   }, [ref])
   return "hello"
