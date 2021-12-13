@@ -42,16 +42,16 @@ const useGlassmorphism = (ref, options) => {
       `
 
       const elevationMedium = `
-        inset -2px -2px 5px 1px hsl(0deg, 0%, 100%, 0.1),
+        inset -2px 2px 5px 1px hsl(0deg, 0%, 100%, 0.1),
         0px 0.5px 0.7px hsl(${h}, ${s}, ${l}, 0.14),
         0px 2.1px 2.8px -0.3px hsl(
           ${h}, ${stepDownValue(s, 0.8)}, ${stepDownValue(l, 0.8)}, 0.25
       ),
         0px 4.5px 6.1px -0.7px hsl(
-          ${h}, ${stepDownValue(s, 0.5)}, ${stepDownValue(l, 0.5)}, 0.36
+          ${h}, ${stepDownValue(s, 0.75)}, ${stepDownValue(l, 0.75)}, 0.36
       ),
         0.1px 9.8px 13.2px -1px hsl(
-          var(--shadow-color) / 0.47
+          ${h}, ${stepDownValue(s, 0.5)}, ${stepDownValue(l, 0.5)}, 0.47
       )
       `
 
