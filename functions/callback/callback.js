@@ -22,6 +22,7 @@ const scope =
 
 const profilePath = `${spotifyApi}/me/`
 exports.handler = async event => {
+  console.log("HEADERS: ", event.headers)
   const client = new AuthorizationCode(config)
 
   const code = event.queryStringParameters.code
