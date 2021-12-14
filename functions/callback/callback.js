@@ -1,6 +1,7 @@
 require("dotenv").config()
 const { AuthorizationCode } = require("simple-oauth2")
 const cookie = require("cookie")
+const jwt = require("jsonwebtoken")
 
 const { URL, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } = process.env
 const spotifyApi = "https://accounts.spotify.com"
@@ -57,14 +58,20 @@ exports.handler = async event => {
 }
 
 const createEncryptedCookie = rawToken => {
-  const accessTokenJSONString = JSON.stringify(rawToken)
-  const encodedAccessToken = Buffer.from(accessTokenJSONString).toString(
-    "base64"
-  )
+  const secretKey =
+    "-----BEGIN RSA PRIVATE KEY-----\n" +
+    process.env.JWT_SECRET_KEY +
+    "\n-----END RSA PRIVATE KEY-----"
+
+  const token = jwt.sign({ accessToken: rawToken }, secretKey, {
+    algorithm: "RS256",
+    expiresIn: "2 weeks",
+  })
 
   const hour = 3600000
   const twoWeeks = 14 * 24 * hour
-  return cookie.serialize("timedlify", encodedAccessToken, {
+
+  return cookie.serialize("timedlify", token, {
     secure: true,
     httpOnly: true,
     path: "/",
