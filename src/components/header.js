@@ -24,6 +24,9 @@ const Header = ({ siteTitle }) => {
         <SignIn href='/.netlify/functions/authorize'>
           Sign in with Spotify
         </SignIn>
+        <SignIn href='/.netlify/functions/getSpotifyUser'>
+          Get user data
+        </SignIn>
       </Flex>
     </StyledHeader>
   )
