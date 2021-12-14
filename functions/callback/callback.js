@@ -1,5 +1,6 @@
 require("dotenv").config()
 const { AuthorizationCode } = require("simple-oauth2")
+const cookie = require("cookie")
 
 const { URL, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } = process.env
 const spotifyApi = "https://accounts.spotify.com"
@@ -38,16 +39,34 @@ exports.handler = async event => {
 
   try {
     const accessToken = await client.getToken(tokenParams)
-    console.log(accessToken)
+    const timedlifyCookie = createEncryptedCookie(accessToken)
+
     return {
       statusCode: 302,
       headers: {
         Location: "http://localhost:8888/",
+        "Set-Cookie": timedlifyCookie,
         "Cache-Control": "no-cache", // Disable caching of this response
       },
       body: "", // return body for local dev
     }
   } catch (error) {
-    console.log("Access Token Error: ", error.message)
+    console.log("Error: ", error.message)
   }
+}
+
+const createEncryptedCookie = rawToken => {
+  const accessTokenJSONString = JSON.stringify(rawToken)
+  const encodedAccessToken = Buffer.from(accessTokenJSONString).toString(
+    "base64"
+  )
+
+  const hour = 3600000
+  const twoWeeks = 14 * 24 * hour
+  return cookie.serialize("timedlify", encodedAccessToken, {
+    secure: true,
+    httpOnly: true,
+    path: "/",
+    maxAge: twoWeeks,
+  })
 }
