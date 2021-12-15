@@ -19,6 +19,7 @@ const config = {
     authorizePath: `${spotifyApi}/authorize`,
   },
 }
+
 const handler = async function (event) {
   const client = new AuthorizationCode(config)
   const { timedlify } = cookie.parse(event?.headers?.cookie)
@@ -41,6 +42,7 @@ AphbHTvSw3PeZrCCEoBYTykCAwEAAQ==
   if (!timedlify) {
     console.log("HANDLE UNAUTHORIZED")
   }
+
   try {
     let { accessToken } = jwt.verify(timedlify, publicKey)
     accessToken = client.createToken(accessToken)
@@ -52,20 +54,19 @@ AphbHTvSw3PeZrCCEoBYTykCAwEAAQ==
         console.log("Error refreshing access token: ", error.message)
       }
     }
-
-    // destructure updated token
     const { token_type, access_token } = accessToken.token
-
     const tokenAuthorizationHeader = token_type + " " + access_token
 
-    const response = await fetch("https://api.spotify.com/v1/me", {
-      method: "GET",
-      headers: {
-        Authorization: tokenAuthorizationHeader,
-        Accept: "application/json",
-      },
-    })
-
+    const response = await fetch(
+      // TODO programatically add user_id
+      "https://api.spotify.com/v1/users/thatfeoguy/playlists?limit=6",
+      {
+        headers: {
+          Authorization: tokenAuthorizationHeader,
+          Accept: "application/json",
+        },
+      }
+    )
     if (!response.ok) {
       // NOT res.status >= 200 && res.status < 300
       return { statusCode: response.status, body: response.statusText }
@@ -74,7 +75,7 @@ AphbHTvSw3PeZrCCEoBYTykCAwEAAQ==
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ userData: data }),
+      body: JSON.stringify({ playlists: data }),
     }
   } catch (error) {
     // output to netlify function log

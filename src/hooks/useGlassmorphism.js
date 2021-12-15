@@ -8,7 +8,6 @@ const useGlassmorphism = (ref, options) => {
   const [background, setBackground] = useState("")
 
   useEffect(() => {
-    console.log("render")
     if (typeof window !== undefined && ref.current) {
       const domNode = ref.current
       const { h, s, l } = extractHSLValuesFromNode(domNode)
@@ -77,7 +76,6 @@ const useGlassmorphism = (ref, options) => {
         )
       `
 
-      console.log("shadow", elevationHigh)
       domNode.style.boxShadow = elevationMedium
       domNode.style.background = glassBackground
       domNode.style.backdropFilter = "var(--glass-blur)"

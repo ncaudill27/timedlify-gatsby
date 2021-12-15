@@ -3,30 +3,39 @@ import { BaseIndicator as Indicator } from "./radio"
 import { BaseRadioGroup, BaseRadio, BaseRadioLabel } from "./radio"
 import styled, { keyframes } from "styled-components"
 
-const PlaylistRadioGroup = props => (
-  <StyledRadioGroup {...props}>
-    <StyledRadio value='Hi' id='r1'>
-      <Indicator />
-      <StyledRadioLabel htmlFor='r1'>Hi</StyledRadioLabel>
-    </StyledRadio>
-    <StyledRadio value='WTF' id='r2'>
-      <Indicator />
-      <StyledRadioLabel htmlFor='r2'>Wtf</StyledRadioLabel>
-    </StyledRadio>
-    <StyledRadio value='more' id='r3'>
-      <Indicator />
-      <StyledRadioLabel htmlFor='r3'>more</StyledRadioLabel>
-    </StyledRadio>
-    <StyledRadio value='test' id='r4'>
-      <Indicator />
-      <StyledRadioLabel htmlFor='r4'>test</StyledRadioLabel>
-    </StyledRadio>
-    <StyledRadio value='end' id='r5'>
-      <Indicator />
-      <StyledRadioLabel htmlFor='r5'>end</StyledRadioLabel>
-    </StyledRadio>
-  </StyledRadioGroup>
-)
+const PlaylistRadioGroup = props => {
+  const [playlists, setPlaylists] = React.useState([])
+  React.useEffect(() => {
+    fetch("/.netlify/functions/getSpotifyPlaylists")
+      .then(res => res.json())
+      .then(data => console.log(data))
+  }, [playlists, fetch])
+
+  return (
+    <StyledRadioGroup {...props}>
+      <StyledRadio value='Hi' id='r1'>
+        <Indicator />
+        <StyledRadioLabel htmlFor='r1'>Hi</StyledRadioLabel>
+      </StyledRadio>
+      <StyledRadio value='WTF' id='r2'>
+        <Indicator />
+        <StyledRadioLabel htmlFor='r2'>Wtf</StyledRadioLabel>
+      </StyledRadio>
+      <StyledRadio value='more' id='r3'>
+        <Indicator />
+        <StyledRadioLabel htmlFor='r3'>more</StyledRadioLabel>
+      </StyledRadio>
+      <StyledRadio value='test' id='r4'>
+        <Indicator />
+        <StyledRadioLabel htmlFor='r4'>test</StyledRadioLabel>
+      </StyledRadio>
+      <StyledRadio value='end' id='r5'>
+        <Indicator />
+        <StyledRadioLabel htmlFor='r5'>end</StyledRadioLabel>
+      </StyledRadio>
+    </StyledRadioGroup>
+  )
+}
 
 const StyledRadioGroup = styled(BaseRadioGroup)`
   display: flex;

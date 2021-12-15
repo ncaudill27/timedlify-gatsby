@@ -50,7 +50,6 @@ export const rgbToHsl = rgb => {
 
 // https://www.demo2s.com/javascript/javascript-regex-match-and-parse-hsl-color-string-with-regex.html
 export const parseHsl = (string = "") => {
-  console.log(string)
   const regexp =
     /hsl\(\s*(\d+)\s*,\s*(\d+(?:\.\d+)?%)\s*,\s*(\d+(?:\.\d+)?%)\)/g
   return regexp.exec(string).slice(1)
