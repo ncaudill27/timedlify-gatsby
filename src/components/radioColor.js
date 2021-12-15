@@ -1,6 +1,6 @@
 import React from "react"
-import { BaseIndicator as Indicator } from "./radio"
-import { BaseRadioGroup, BaseRadio, BaseRadioLabel } from "./radio"
+import { BaseIndicator as Indicator } from "./radioPrimitives"
+import { BaseRadioGroup, BaseRadio, BaseRadioLabel } from "./radioPrimitives"
 import styled, { keyframes } from "styled-components"
 import useGlassmorphism from "../hooks/useGlassmorphism"
 

@@ -3,7 +3,8 @@ const { AuthorizationCode } = require("simple-oauth2")
 const cookie = require("cookie")
 const jwt = require("jsonwebtoken")
 
-const { URL, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } = process.env
+const { URL, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, JWT_SECRET_KEY } =
+  process.env
 const spotifyApi = "https://accounts.spotify.com"
 const config = {
   client: {
@@ -59,7 +60,7 @@ exports.handler = async event => {
 const createEncryptedCookie = rawToken => {
   const secretKey =
     "-----BEGIN RSA PRIVATE KEY-----\n" +
-    process.env.JWT_SECRET_KEY +
+    JWT_SECRET_KEY +
     "\n-----END RSA PRIVATE KEY-----"
 
   const token = jwt.sign({ accessToken: rawToken }, secretKey, {
