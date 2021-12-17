@@ -1,10 +1,13 @@
-const { Buffer } = require('buffer')
-const process = require('process')
+const { Buffer } = require("buffer")
+const process = require("process")
 
-const { createHttpLink } = require('apollo-link-http')
-const { ApolloServer } = require('apollo-server-lambda')
-const { introspectSchema, makeRemoteExecutableSchema } = require('graphql-tools')
-const fetch = require('node-fetch')
+const { createHttpLink } = require("apollo-link-http")
+const { ApolloServer } = require("apollo-server-lambda")
+const {
+  introspectSchema,
+  makeRemoteExecutableSchema,
+} = require("graphql-tools")
+const fetch = require("node-fetch")
 
 const handler = async function (event, context) {
   /** required for Fauna GraphQL auth */
@@ -19,13 +22,15 @@ const handler = async function (event, context) {
       body: JSON.stringify({ msg }),
     }
   }
-  const b64encodedSecret = Buffer.from(`${process.env.FAUNADB_SERVER_SECRET}:`).toString('base64')
+  const b64encodedSecret = Buffer.from(
+    `${process.env.FAUNADB_SERVER_SECRET}:`
+  ).toString("base64")
   const headers = { Authorization: `Basic ${b64encodedSecret}` }
 
   /** standard creation of apollo-server executable schema */
   const link = createHttpLink({
     // modify as you see fit
-    uri: 'https://graphql.fauna.com/graphql',
+    uri: "https://graphql.fauna.com/graphql",
     fetch,
     headers,
   })

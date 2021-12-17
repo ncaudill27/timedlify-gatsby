@@ -26,7 +26,7 @@ exports.handler = async () => {
     // set state for callback to verify
     // const state = writeState();
     const client = new AuthorizationCode(config)
-    
+
     const authorizationUri = client.authorizeURL({
       redirect_uri: redirect_uri,
       scope: scope,

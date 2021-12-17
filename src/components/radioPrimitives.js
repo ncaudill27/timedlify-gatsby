@@ -11,7 +11,9 @@ const StyledRadioGroup = styled(RadioGroupPrimitive.Root)``
 const RadioGroup = ({ groupName, children, ...props }) => {
   return (
     <StyledFieldset>
-      <StyledLabel htmlFor={`${groupName}-group`}>{upperFirst(groupName)}</StyledLabel>
+      <StyledLabel htmlFor={`${groupName}-group`}>
+        {upperFirst(groupName)}
+      </StyledLabel>
       <StyledRadioGroup id={`${groupName}-group`} {...props}>
         {children}
       </StyledRadioGroup>
@@ -25,7 +27,7 @@ const StyledFieldset = styled.fieldset`
 
 const StyledLabel = styled(Label)`
   margin-bottom: var(--spacing-2);
-`;
+`
 
 const StyledRadio = styled(RadioGroupPrimitive.Item)`
   all: unset;
