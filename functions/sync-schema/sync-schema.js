@@ -30,8 +30,7 @@ const handler = async () => {
   }
 
   try {
-    // const res = await fetch('https://graphql.fauna.com/import', options)
-    const res = await fetch("https://graphql.fauna.com/ping")
+    const res = await fetch("https://graphql.fauna.com/import", options)
     const body = await res.text()
     console.log(
       "Netlify Functions:Create - `fauna-graphql/sync-schema.js` success!"
