@@ -1,20 +1,20 @@
-type User {
-  
-  completed: Boolean!
-}
-
 type Timedlify {
   name: String!
   playlist: String!
   color: String!
   hours: Int
-  minutes
-  seconds
-  isInterval
-  restInterval
+  minutes: Int
+  seconds: Int
+  interval: Boolean
+  rounds: Int
+  user: User!
+}
+
+type User {
+  name: String!
+  alerts: [Timedlify!] @relation
 }
 
 type Query {
-  allTodos: [Todo!]
-  todosByCompletedFlag(completed: Boolean!): [Todo!]
+  allTimedlify: [Timedlify!]
 }

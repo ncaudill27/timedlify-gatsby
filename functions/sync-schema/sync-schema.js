@@ -31,13 +31,25 @@ const handler = async () => {
 
   try {
     const res = await fetch("https://graphql.fauna.com/import", options)
+    console.log(res)
     const body = await res.text()
     console.log(
       "Netlify Functions:Create - `fauna-graphql/sync-schema.js` success!"
     )
     console.log(body)
+    return {
+      statusCode: 200,
+      body:
+        "\nNetlify Functions:Create - attempting to create schema" +
+        "\n\n" +
+        body,
+    }
   } catch (error) {
     console.error("something wrong happened:", { err: error })
+    return {
+      statusCode: 500,
+      body: "ERROR! Netlify Functions:Create failed!" + "\n\n" + error,
+    }
   }
 }
 

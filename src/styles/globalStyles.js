@@ -29,7 +29,7 @@ export default createGlobalStyle`
   --color-text-transparent-3: hsl(184deg, 18%, 81%);//#C6D6D7 color based on color text at 0.2 alpha
   --color-background: hsl(0deg, 0%, 15%);
   --color-background-dark: hsl(0deg, 0%, 6%);
-  --color-background-light: 	hsl(0deg, 0%, 31%);
+  --color-background-light:	hsl(0deg, 0%, 31%);
   --color-primary: 	hsl(128deg, 100%, 50%); // #00ff22
   --color-primary-muted: 	hsl(128deg, 100%, 70%); // #00ff22
   --color-secondary: hsl(3deg, 100%, 43%);
