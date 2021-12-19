@@ -4,8 +4,6 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import MaxWidthWrapper from "../components/maxWidthWrapper"
 
-import useGlassmorphism from "../hooks/useGlassmorphism"
-
 const Header = ({ siteTitle }) => {
   const headerEl = React.useRef()
 

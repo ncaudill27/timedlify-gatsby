@@ -5,15 +5,10 @@ import styled from "styled-components"
 
 import useGlassmorphism from "../hooks/useGlassmorphism"
 
-const Button = ({ variant = "fill", children, ...props }) => {
+const Button = ({ variant = "fill", ...props }) => {
   const buttonEl = React.useRef()
 
   useGlassmorphism(buttonEl)
-
-  const stylesObj = {
-    "--width": "100%",
-    ...props.style,
-  }
 
   let Component
   if (variant === "fill") {
@@ -25,25 +20,9 @@ const Button = ({ variant = "fill", children, ...props }) => {
   }
 
   if (!!props.to) {
-    return (
-      <Link
-        style={{
-          textDecoration: "none",
-          overflow: "hidden",
-        }}
-        {...props}
-      >
-        <Component ref={buttonEl} style={stylesObj}>
-          {children}
-        </Component>
-      </Link>
-    )
+    return <GatsbyLinkButton ref={buttonEl} Component={Component} {...props} />
   }
-  return (
-    <Component ref={buttonEl} {...props}>
-      {children}
-    </Component>
-  )
+  return <Component ref={buttonEl} {...props} />
 }
 
 const ButtonBase = styled.button`
@@ -52,7 +31,7 @@ const ButtonBase = styled.button`
   margin-bottom: var(--spacing-1);
   padding: var(--spacing-0) var(--spacing-3);
   border: 0;
-  border-radius: 50px;
+  border-radius: 10px;
   appearance: none;
   font-weight: 600;
   box-shadow: var(--shadow-elevation-medium);
@@ -110,6 +89,27 @@ const GhostButton = styled(ButtonBase)`
     background-color: var(--color-text-transparent);
   }
 `
+
+const GatsbyLinkButton = React.forwardRef((props, ref) => {
+  const stylesObj = {
+    "--width": "100%",
+    ...props.style,
+  }
+
+  return (
+    <Link
+      style={{
+        textDecoration: "none",
+        overflow: "hidden",
+      }}
+      {...props}
+    >
+      <Component ref={ref} style={stylesObj}>
+        {props.children}
+      </Component>
+    </Link>
+  )
+})
 
 Button.propTypes = {
   variant: PropTypes.oneOf(["fill", "variant", "ghost"]),
