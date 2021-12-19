@@ -10,6 +10,12 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-styled-components`,
     {
+      resolve: "gatsby-plugin-apollo",
+      options: {
+        uri: "/.netlify/functions/fauna-graphql",
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

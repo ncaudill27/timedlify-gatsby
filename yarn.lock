@@ -2,6 +2,24 @@
 # yarn lockfile v1
 
 
+"@apollo/client@^3.5.6":
+  version "3.5.6"
+  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.5.6.tgz#911929df073280689efd98e5603047b79e0c39a2"
+  integrity sha512-XHoouuEJ4L37mtfftcHHO1caCRrKKAofAwqRoq28UQIPMJk+e7n3X9OtRRNXKk/9tmhNkwelSary+EilfPwI7A==
+  dependencies:
+    "@graphql-typed-document-node/core" "^3.0.0"
+    "@wry/context" "^0.6.0"
+    "@wry/equality" "^0.5.0"
+    "@wry/trie" "^0.3.0"
+    graphql-tag "^2.12.3"
+    hoist-non-react-statics "^3.3.2"
+    optimism "^0.16.1"
+    prop-types "^15.7.2"
+    symbol-observable "^4.0.0"
+    ts-invariant "^0.9.4"
+    tslib "^2.3.0"
+    zen-observable-ts "^1.2.0"
+
 "@apollo/client@~3.2.5 || ~3.3.0 || ~3.4.0":
   version "3.4.17"
   resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.4.17.tgz#4972e19a49809e16d17c5adc67f45623a6dac135"
@@ -7668,6 +7686,13 @@ gatsby-page-utils@^2.4.0:
     lodash "^4.17.21"
     micromatch "^4.0.4"
 
+gatsby-plugin-apollo@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-apollo/-/gatsby-plugin-apollo-4.0.1.tgz#cf0f933036c70bb8cb2a1d26b5fb1ac582a89cb8"
+  integrity sha512-fJHfJHJPEXV4dDdqX9Oa/XR3LjbHVtie7lH7DfCjLxNlXy3Mn9PgOlOVM6B5K32h/bemu0aEgMUGbqutlgXJFQ==
+  dependencies:
+    isomorphic-fetch "^3.0.0"
+
 gatsby-plugin-gatsby-cloud@^4.3.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-gatsby-cloud/-/gatsby-plugin-gatsby-cloud-4.4.0.tgz#a71076f01a71086e5b03a1ed7464127d7aadb330"
@@ -9604,6 +9629,14 @@ isobject@^3.0.0, isobject@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
+
+isomorphic-fetch@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/isomorphic-fetch/-/isomorphic-fetch-3.0.0.tgz#0267b005049046d2421207215d45d6a262b8b8b4"
+  integrity sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==
+  dependencies:
+    node-fetch "^2.6.1"
+    whatwg-fetch "^3.4.1"
 
 isomorphic-ws@4.0.1:
   version "4.0.1"
@@ -14708,7 +14741,7 @@ ts-invariant@^0.4.0:
   dependencies:
     tslib "^1.9.3"
 
-ts-invariant@^0.9.0:
+ts-invariant@^0.9.0, ts-invariant@^0.9.4:
   version "0.9.4"
   resolved "https://registry.yarnpkg.com/ts-invariant/-/ts-invariant-0.9.4.tgz#42ac6c791aade267dd9dc65276549df5c5d71cac"
   integrity sha512-63jtX/ZSwnUNi/WhXjnK8kz4cHHpYS60AnmA6ixz17l7E12a5puCWFlNpkne5Rl0J8TBPVHpGjsj4fxs8ObVLQ==
@@ -15390,6 +15423,11 @@ well-known-symbols@^2.0.0:
   resolved "https://registry.yarnpkg.com/well-known-symbols/-/well-known-symbols-2.0.0.tgz#e9c7c07dbd132b7b84212c8174391ec1f9871ba5"
   integrity sha512-ZMjC3ho+KXo0BfJb7JgtQ5IBuvnShdlACNkKkdsqBmYw3bPAaJfPeYUo6tLUaT5tG/Gkh7xkpBhKRQ9e7pyg9Q==
 
+whatwg-fetch@^3.4.1:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.6.2.tgz#dced24f37f2624ed0281725d51d0e2e3fe677f8c"
+  integrity sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA==
+
 whatwg-url@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/whatwg-url/-/whatwg-url-5.0.0.tgz#966454e8765462e37644d3626f6742ce8b70965d"
@@ -15857,6 +15895,13 @@ zen-observable-ts@^0.8.21:
   dependencies:
     tslib "^1.9.3"
     zen-observable "^0.8.0"
+
+zen-observable-ts@^1.2.0:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/zen-observable-ts/-/zen-observable-ts-1.2.3.tgz#c2f5ccebe812faf0cfcde547e6004f65b1a6d769"
+  integrity sha512-hc/TGiPkAWpByykMwDcem3SdUgA4We+0Qb36bItSuJC9xD0XVBZoFHYoadAomDSNf64CG8Ydj0Qb8Od8BUWz5g==
+  dependencies:
+    zen-observable "0.8.15"
 
 zen-observable-ts@~1.1.0:
   version "1.1.0"
