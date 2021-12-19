@@ -26,9 +26,7 @@ const Header = ({ siteTitle }) => {
         <SignIn href='/.netlify/functions/authorize'>
           Sign in with Spotify
         </SignIn>
-        <SignIn as='button' onClick={handleClick}>
-          Get user data
-        </SignIn>
+        <button onClick={handleClick}>Get user data</button>
       </Flex>
     </StyledHeader>
   )
@@ -55,12 +53,12 @@ const Flex = styled(MaxWidthWrapper)`
 
 const Title = styled.h1`
   margin: 0;
-  margin-right: auto;
 `
 
 const SignIn = styled.a`
   display: block;
   margin-left: auto;
+  margin-right: var(--spacing-0);
   color: inherit;
   text-decoration: none;
 `

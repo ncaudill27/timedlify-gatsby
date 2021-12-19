@@ -8,7 +8,6 @@ import Button from "./button"
 import TimerDurationGroup from "./timerDurationGroup"
 import IntervalCheckbox from "./checkboxInterval"
 import NumberHidden from "./hiddenNumber"
-import { EyeNoneIcon } from "@radix-ui/react-icons"
 
 const Form = React.forwardRef(
   (

@@ -9,7 +9,8 @@ const PlaylistRadioGroup = props => {
   const [playlists, setPlaylists] = useState([])
   useEffect(() => {
     async function fetchPlaylists() {
-      const fetchedPlaylists = await getSpotifyPlaylists()
+      const { playlists: fetchedPlaylists, error } = await getSpotifyPlaylists()
+      console.log("Playlists: ", fetchedPlaylists)
       setPlaylists(fetchedPlaylists)
     }
 

@@ -16,6 +16,7 @@ const config = {
     authorizePath: `${spotifyApi}/authorize`,
   },
 }
+const client = new AuthorizationCode(config)
 
 const redirect_uri = `${siteUrl}/.netlify/functions/callback`
 const scope =
@@ -23,10 +24,6 @@ const scope =
 
 exports.handler = async () => {
   try {
-    // set state for callback to verify
-    // const state = writeState();
-    const client = new AuthorizationCode(config)
-
     const authorizationUri = client.authorizeURL({
       redirect_uri: redirect_uri,
       scope: scope,

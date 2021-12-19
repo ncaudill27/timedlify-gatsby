@@ -19,10 +19,8 @@ const config = {
     authorizePath: `${spotifyApi}/authorize`,
   },
 }
-const handler = async function (event) {
-  const client = new AuthorizationCode(config)
-  const { timedlify } = cookie.parse(event?.headers?.cookie)
-  const publicKey = `-----BEGIN PUBLIC KEY-----
+const client = new AuthorizationCode(config)
+const publicKey = `-----BEGIN PUBLIC KEY-----
 MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAxdS8ISi+4kaQv6VUpLug
 iGAajqnd2gNgpC31JMGA/9W6qDLn7zKXEQ0SSe/8YOjlgzDxGTE4llu5YNqPVckA
 wn8rlBLTA2kYMDQ/F/OzreBfzir0meb9+kQp+Eym9S0fn4RYfZQipiqX4SsRIcwP
@@ -38,9 +36,16 @@ AphbHTvSw3PeZrCCEoBYTykCAwEAAQ==
 -----END PUBLIC KEY-----
 `
 
+const handler = async function (event) {
+  const { timedlify } = cookie.parse(event?.headers?.cookie)
+
   if (!timedlify) {
-    console.log("HANDLE UNAUTHORIZED")
+    return {
+      statusCode: 401,
+      body: "UNAUTHORIZED ACCESS",
+    }
   }
+
   try {
     let { accessToken } = jwt.verify(timedlify, publicKey)
     accessToken = client.createToken(accessToken)
@@ -49,19 +54,23 @@ AphbHTvSw3PeZrCCEoBYTykCAwEAAQ==
       try {
         accessToken = await accessToken.refresh()
       } catch (error) {
-        console.log("Error refreshing access token: ", error.message)
+        console.log(
+          "\n\nTOKEN ERROR\nError refreshing access token: ",
+          error.message,
+          "\n\n"
+        )
       }
     }
 
     // destructure updated token
     const { token_type, access_token } = accessToken.token
 
-    const tokenAuthorizationHeader = token_type + " " + access_token
+    const authorizationHeader = token_type + " " + access_token
 
     const response = await fetch("https://api.spotify.com/v1/me", {
       method: "GET",
       headers: {
-        Authorization: tokenAuthorizationHeader,
+        Authorization: authorizationHeader,
         Accept: "application/json",
       },
     })
