@@ -2,13 +2,17 @@ import * as React from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import { getSpotifyUser } from "../utils/fetch"
+
 import MaxWidthWrapper from "../components/maxWidthWrapper"
 
 const Header = ({ siteTitle }) => {
-  const headerEl = React.useRef()
-
+  const handleClick = async () => {
+    const userData = await getSpotifyUser()
+    console.log(userData)
+  }
   return (
-    <StyledHeader ref={headerEl}>
+    <StyledHeader>
       <Flex width={700}>
         <Link
           to='/'
@@ -22,7 +26,9 @@ const Header = ({ siteTitle }) => {
         <SignIn href='/.netlify/functions/authorize'>
           Sign in with Spotify
         </SignIn>
-        <SignIn href='/.netlify/functions/getSpotifyUser'>Get user data</SignIn>
+        <SignIn as='button' onClick={handleClick}>
+          Get user data
+        </SignIn>
       </Flex>
     </StyledHeader>
   )

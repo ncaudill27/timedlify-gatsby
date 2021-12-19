@@ -20,7 +20,7 @@ const Button = ({ variant = "fill", ...props }) => {
   }
 
   if (!!props.to) {
-    return <GatsbyLinkButton ref={buttonEl} Component={Component} {...props} />
+    return <GatsbyLinkButton ref={buttonEl} component={Component} {...props} />
   }
   return <Component ref={buttonEl} {...props} />
 }
@@ -104,9 +104,9 @@ const GatsbyLinkButton = React.forwardRef((props, ref) => {
       }}
       {...props}
     >
-      <Component ref={ref} style={stylesObj}>
+      <props.component ref={ref} style={stylesObj}>
         {props.children}
-      </Component>
+      </props.component>
     </Link>
   )
 })
