@@ -39,6 +39,7 @@ export const CREATE_TIMEDLIFY = gql`
     $minutes: Int
     $seconds: Int
     $interval: Boolean
+    $restInterval: Int
     $rounds: Int
     $user: TimedlifyUserRelation
   ) {
@@ -51,6 +52,7 @@ export const CREATE_TIMEDLIFY = gql`
         minutes: $minutes
         seconds: $seconds
         interval: $interval
+        restInterval: $restInterval
         rounds: $rounds
       }
     ) {
@@ -61,6 +63,7 @@ export const CREATE_TIMEDLIFY = gql`
       minutes
       seconds
       interval
+      restInterval
       rounds
     }
   }

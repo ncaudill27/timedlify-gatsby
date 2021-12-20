@@ -19,7 +19,7 @@ const Form = React.forwardRef(
       minutes,
       seconds,
       isInterval,
-      roundInterval,
+      rounds,
       setIsInterval,
       setName,
       setPlaylist,
@@ -29,10 +29,11 @@ const Form = React.forwardRef(
       setSeconds,
       restInterval,
       setRestInterval,
-      setRoundInterval,
+      setRounds,
       handleSubmit,
       handleChange,
       handleRadix,
+      loading,
     },
     ref
   ) => {
@@ -104,8 +105,8 @@ const Form = React.forwardRef(
             />
             <NumberHidden
               name='rounds'
-              value={roundInterval}
-              onChange={handleChange(setRoundInterval)}
+              value={rounds}
+              onChange={handleChange(setRounds)}
               isOpen={isInterval}
               aria-hidden={!isInterval}
               aria-labelledby='ic1'

@@ -2,7 +2,7 @@ import * as React from "react"
 import styled from "styled-components"
 
 import useCurrentUser from "../hooks/useCurrentUser"
-import { GET_USER_ALERTS } from "../utils/graphql/queries"
+import { GET_USER_ALERTS } from "../utils/graphql/gql"
 import { useQuery } from "@apollo/client"
 
 import Layout from "../components/layout"

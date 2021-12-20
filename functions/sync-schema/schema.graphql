@@ -6,6 +6,7 @@ type Timedlify {
   minutes: Int
   seconds: Int
   interval: Boolean
+  restInterval: Int
   rounds: Int
   user: User!
 }
