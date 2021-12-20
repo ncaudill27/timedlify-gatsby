@@ -13,6 +13,9 @@ export const getSpotifyUser = () => {
   return fetch("/.netlify/functions/getSpotifyUser")
     .then(res => res.json())
     .then(data => {
-      return data.userData
+      return { user: data.userData }
+    })
+    .catch(error => {
+      return { error }
     })
 }
