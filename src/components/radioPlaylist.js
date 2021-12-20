@@ -7,21 +7,26 @@ import RadioPlaylistButton from "./radioPlaylistButton"
 
 const PlaylistRadioGroup = props => {
   const [playlists, setPlaylists] = useState([])
+  const [error, setError] = useState(false)
   useEffect(() => {
     async function fetchPlaylists() {
       const { playlists: fetchedPlaylists, error } = await getSpotifyPlaylists()
-      console.log("Playlists: ", fetchedPlaylists)
-      setPlaylists(fetchedPlaylists)
-    }
 
+      error ? setError(true) : setPlaylists(fetchedPlaylists)
+    }
+    console.log("render")
     fetchPlaylists()
   }, [])
 
   return (
     <StyledRadioGroup {...props}>
-      {playlists.map(playlistData => (
-        <RadioPlaylistButton key={playlistData.id} {...playlistData} />
-      ))}
+      {!error ? (
+        playlists.map(playlistData => (
+          <RadioPlaylistButton key={playlistData.id} {...playlistData} />
+        ))
+      ) : (
+        <>Error loading playlists<br/>Please login</>
+      )}
     </StyledRadioGroup>
   )
 }
