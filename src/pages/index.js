@@ -1,6 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
-import { getSpotifyUser } from "../utils/fetch"
+
+import useCurrentUser from "../hooks/useCurrentUser"
 import { GET_USER_ALERTS } from "../utils/graphql/queries"
 import { useQuery } from "@apollo/client"
 
@@ -11,27 +12,16 @@ import Button from "../components/button"
 import Footer from "../components/footer"
 
 const IndexPage = () => {
-  const [user, setUser] = React.useState({})
-  const [serverlessError, setError] = React.useState(false)
+  const { user, error } = useCurrentUser()
 
   const {
     loading,
     error: apolloError,
-    data: alerts,
+    data: alerts = [],
   } = useQuery(GET_USER_ALERTS, {
     variables: { id: user.id },
   })
 
-  React.useEffect(() => {
-    async function getTimedlifyAlerts() {
-      const { user, error } = await getSpotifyUser()
-      error ? setError(true) : setUser(user)
-    }
-
-    getTimedlifyAlerts()
-  }, [])
-
-  console.log(serverlessError)
   return (
     <Layout>
       <Seo title='Home' />
