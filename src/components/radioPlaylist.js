@@ -1,22 +1,12 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import styled from "styled-components"
-import { getSpotifyPlaylists } from "../utils/fetch"
 
 import { BaseRadioGroup } from "./radioPrimitives"
 import RadioPlaylistButton from "./radioPlaylistButton"
+import useSpotifyPlaylists from "../hooks/useSpotifyPlaylists"
 
 const PlaylistRadioGroup = props => {
-  const [playlists, setPlaylists] = useState([])
-  const [error, setError] = useState(false)
-  useEffect(() => {
-    async function fetchPlaylists() {
-      const { playlists: fetchedPlaylists, error } = await getSpotifyPlaylists()
-
-      error ? setError(true) : setPlaylists(fetchedPlaylists)
-    }
-    console.log("render")
-    fetchPlaylists()
-  }, [])
+  const { playlists, error } = useSpotifyPlaylists()
 
   return (
     <StyledRadioGroup {...props}>
@@ -25,7 +15,11 @@ const PlaylistRadioGroup = props => {
           <RadioPlaylistButton key={playlistData.id} {...playlistData} />
         ))
       ) : (
-        <>Error loading playlists<br/>Please login</>
+        <>
+          Error loading playlists
+          <br />
+          Please login
+        </>
       )}
     </StyledRadioGroup>
   )
