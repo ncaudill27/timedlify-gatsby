@@ -41,6 +41,15 @@ exports.handler = async event => {
 
   try {
     const accessToken = await client.getToken(tokenParams)
+    // TODO use accessToken to hit "https://api.spotify.com/v1/me" and get userData
+    // const userData = getSpotifyUser(accessToken)
+
+    // TODO pass userData into cookie for storage
+    // const cookieData = {
+    //   accessToken,
+    //   userData
+    // }
+    // const timedlifyCookie = createEncryptedCookie(cookieData)
     const timedlifyCookie = createEncryptedCookie(accessToken)
 
     return {
@@ -63,6 +72,8 @@ const createEncryptedCookie = rawToken => {
     JWT_SECRET_KEY +
     "\n-----END RSA PRIVATE KEY-----"
 
+  // TODO sign jwt with spotifyUser data
+  // const token = jwt.sign(cookieData, secretKey, {
   const token = jwt.sign({ accessToken: rawToken }, secretKey, {
     algorithm: "RS256",
     expiresIn: "2 weeks",

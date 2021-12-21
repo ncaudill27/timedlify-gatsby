@@ -2,15 +2,10 @@ import * as React from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import { getSpotifyUser } from "../utils/fetch"
 
 import MaxWidthWrapper from "../components/maxWidthWrapper"
 
 const Header = ({ siteTitle }) => {
-  const handleClick = async () => {
-    const userData = await getSpotifyUser()
-    console.log(userData)
-  }
   return (
     <StyledHeader>
       <Flex width={700}>
@@ -26,7 +21,6 @@ const Header = ({ siteTitle }) => {
         <SignIn href='/.netlify/functions/authorize'>
           Sign in with Spotify
         </SignIn>
-        <button onClick={handleClick}>Get user data</button>
       </Flex>
     </StyledHeader>
   )
@@ -58,7 +52,6 @@ const Title = styled.h1`
 const SignIn = styled.a`
   display: block;
   margin-left: auto;
-  margin-right: var(--spacing-0);
   color: inherit;
   text-decoration: none;
 `

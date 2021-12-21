@@ -10,7 +10,7 @@ const useSpotifyPlaylists = () => {
 
       error ? setError(true) : setPlaylists(fetchedPlaylists)
     }
-    console.log("render")
+
     fetchPlaylists()
   }, [])
 
