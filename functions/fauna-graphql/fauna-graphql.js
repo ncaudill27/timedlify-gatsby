@@ -31,7 +31,7 @@ const handler = async function (event, context) {
   const link = createHttpLink({
     // modify as you see fit
     uri: "https://graphql.fauna.com/graphql",
-    fetch,
+    fetch: fetch.default,
     headers,
   })
   const schema = await introspectSchema(link)

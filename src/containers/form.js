@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react"
+import { navigate } from "gatsby"
 import { useMutation } from "@apollo/client"
 import { CREATE_TIMEDLIFY } from "../utils/graphql/gql"
 
@@ -7,7 +8,10 @@ import StyledForm from "../components/form"
 const Form = props => {
   const formEl = useRef()
   const [createTimedlify, { loading }] = useMutation(CREATE_TIMEDLIFY, {
-    onCompleted: () => resetForm(),
+    onCompleted: () => {
+      resetForm()
+      navigate("/")
+    },
   })
 
   const [name, setName] = useState("")
@@ -41,12 +45,12 @@ const Form = props => {
         name,
         playlist,
         color,
-        hours,
-        minutes,
-        seconds,
+        hours: !!hours ? hours : 0,
+        minutes: !!minutes ? minutes : 0,
+        seconds: !!seconds ? seconds : 0,
         interval: isInterval,
-        restInterval,
-        rounds: restInterval,
+        restInterval: !!restInterval ? restInterval : 0,
+        rounds: !!rounds ? rounds : 0,
       },
     })
     console.log(
@@ -83,7 +87,7 @@ const Form = props => {
     handleSubmit,
     handleChange,
     handleRadix,
-    loading
+    loading,
   }
 
   return <StyledForm ref={formEl} {...{ ...formLogic, ...props }} />

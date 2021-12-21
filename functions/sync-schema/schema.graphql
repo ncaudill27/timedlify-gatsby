@@ -12,10 +12,11 @@ type Timedlify {
 }
 
 type User {
-  name: String!
+  name: String! @unique(index: "unique_username")
   alerts: [Timedlify!] @relation
 }
 
 type Query {
   allTimedlify: [Timedlify!]
+  allUsers: [User!]
 }
