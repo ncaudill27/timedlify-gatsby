@@ -19,4 +19,5 @@ type User {
 type Query {
   allTimedlify: [Timedlify!]
   allUsers: [User!]
+  findUserByName(name: String!): User
 }

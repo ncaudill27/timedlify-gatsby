@@ -1,16 +1,16 @@
 import { gql } from "@apollo/client"
 
 export const GET_USER = gql`
-  query GetUser($id: String!) {
-    findUserByID(id: $id) {
+  query GetUser($name: String!) {
+    findUserByName(name: $name) {
       name
     }
   }
 `
 
 export const GET_USER_ALERTS = gql`
-  query GetUser($id: String!) {
-    findUserByID(id: $id) {
+  query GetUser($name: String!) {
+    findUserByName(name: $name) {
       alerts {
         data {
           name

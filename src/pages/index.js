@@ -19,7 +19,7 @@ const IndexPage = () => {
     error: apolloError,
     data: alerts = [],
   } = useQuery(GET_USER_ALERTS, {
-    variables: { id: user.id },
+    variables: { name: user.id },
   })
 
   return (
