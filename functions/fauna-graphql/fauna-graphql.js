@@ -3,10 +3,9 @@ const process = require("process")
 
 const { createHttpLink } = require("apollo-link-http")
 const { ApolloServer } = require("apollo-server-lambda")
-const {
-  introspectSchema,
-  makeRemoteExecutableSchema,
-} = require("graphql-tools")
+const { loadSchema } = require("@graphql-tools/load")
+const { UrlLoader } = require("@graphql-tools/url-loader")
+const { makeExecutableSchema } = require("@graphql-tools/schema")
 const fetch = require("node-fetch")
 
 const handler = async function (event, context) {
@@ -31,11 +30,16 @@ const handler = async function (event, context) {
   const link = createHttpLink({
     // modify as you see fit
     uri: "https://graphql.fauna.com/graphql",
-    fetch: fetch.default,
+    fetch: fetch,
     headers,
   })
-  const schema = await introspectSchema(link)
-  const executableSchema = makeRemoteExecutableSchema({
+  console.log("LINK: ", link)
+
+  const schema = await loadSchema(link, {
+    loaders: [new UrlLoader()],
+  })
+
+  const executableSchema = makeExecutableSchema({
     schema,
     link,
   })
